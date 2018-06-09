@@ -1,8 +1,6 @@
 
 # Storytime
 
-============
-
 ## Motivation
 
 Story time is a platform for writers who want to foster their confidence and skills in writing, by sharing their works with a community passionate about story telling.
@@ -13,22 +11,29 @@ As a visitor of our site, we want to provide the best possible user experience f
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-On the [Client]()
+On the [Client](https://github.com/patersog/story-time-app-client)
 
 [React](https://reactjs.org/)
+
 [Redux](https://redux.js.org/)
+
 [ReduxForm](https://redux-form.com/7.3.0/)
 
-On the [Server]()
+On the [Server](https://github.com/patersog/story-time-app-server)
 
 [Node.js](https://nodejs.org/)
+
 [Express.js](https://expressjs.com/)
+
 [Knex.js](https://knexjs.org/) configured with [PostgreSQL](https://www.postgresql.org/), hosted by [elephantsql](https://www.elephantsql.com/)
+
 [passport.js](http://www.passportjs.org/)
+
 [bcrypt.js](https://github.com/dcodeIO/bcrypt.js)
+
 [jsonwebtokens](https://github.com/auth0/node-jsonwebtoken)
 
-Corresponding package.json files provide more details
+Corresponding  can package.json files provide more detail
 
 ## Code
 
@@ -49,23 +54,23 @@ Entry point for the application is server.js, and configuration in config.js
 
 ### DashBoard
 
-![home view](./img/home.png)
+[dashboard view](./img/home.png)
 
 ### Registration
 
-![register view](./img/register.png)
+[register view](./img/register.png)
 
 ### DashBoard - Authorized
 
-![home-auth view](./img/home-auth.png)
+[dashboard-auth view](./img/home-auth.png)
 
 ### Story
 
-![story view](./img/story.png)
+[story view](./img/story.png)
 
 ### Submit - Authorized
 
-![submit/edit view](./img/submit.png)
+[submit/edit view](./img/submit.png)
 
 ## Task List
 
@@ -85,7 +90,14 @@ Entry point for the application is server.js, and configuration in config.js
 ### Planned
 
 - [ ] Story Pagination
+- [ ] Rigourous testing of Client and Server
 
-### Deployed Version
+#### Other Tasks
+
+- [ ] Add CDCI (Travis)
+
+### Deployment
 
 [Storytime](https://loving-aryabhata-422d0b.netlify.com/)
+
+Deployed with [netlify](https://www.netlify.com/) and [heroku](https://github.com/heroku);

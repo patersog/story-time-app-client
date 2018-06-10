@@ -1,4 +1,3 @@
-
 # Storytime
 
 ## Motivation

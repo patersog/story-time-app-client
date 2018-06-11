@@ -1,32 +1,29 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 
 import ActionBar from './action-bar';
 import StoryList from './story-list';
-import StoryView from './story-view';
+import StoryPage from './story-page';
 
 import './styles/list-action-display.css';
 
-export class ListActionDisplay extends Component {
+export function ListActionDisplay(props){
 
-	render() {
-
-		if(this.props.story) {
-			return (<StoryView/>);
-		}
-
-		return(
-			<div className="action-display-main">
-				<h2 className="action-display-header">
-					Browse The Short Stories
-				</h2>
-				<ActionBar/>
-				<div className="action-display-controller">
-					<StoryList/>
-				</div>
-			</div>
-		);
+	if(props.story) {
+		return (<StoryPage/>);
 	}
+
+	return(
+		<div className="action-display">
+			<h2 className="action-display-header">
+					Browse The Short Stories
+			</h2>
+			<ActionBar/>
+			<div className="action-display-main">
+				<StoryList/>
+			</div>
+		</div>
+	);
 }
 
 const mapStateToProps = state => ({

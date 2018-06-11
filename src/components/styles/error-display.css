@@ -1,0 +1,27 @@
+.error-display-header {
+	margin: 0;
+	margin-bottom: 0.73em;
+	padding-bottom:0.73em;
+	background-color:  #EDF5E1;
+	text-align: center;
+}
+
+.error-display-main {
+	width: 100%;
+	height: 68vh;
+	background-color:  #EDF5E1;
+	border-radius: 3px;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+}
+
+
+.error-message {
+	font-size: 2vh;
+	margin: auto;
+	text-align: center;
+}
+
+span {
+	color: maroon;
+}

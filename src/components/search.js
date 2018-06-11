@@ -1,27 +1,26 @@
-import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
-import { connect } from 'react-redux';
+import React from 'react';
+import {reduxForm, Field} from 'redux-form';
+import {connect} from 'react-redux';
+
 import Input from './input';
-import { searchStory } from '../actions/stories';
+import {searchStory} from '../actions/stories';
 
 import './styles/search-bar.css';
 
-export class Search extends Component {
+export function Search(props){
 
-	onSubmit(value) {
-		return this.props.dispatch(searchStory(value));
-	}
+	const onSubmit = (value) => {
+		return props.dispatch(searchStory(value));
+	};
 
-	render() {
-		return(
-			<form onSubmit={this.props.handleSubmit(value => this.onSubmit(value))}>
-				<div className="search-bar">
-					<Field type="search" name="searchText" id="searchtext" component={Input} palceholder="Search for Stories" autocomplete="off"/>
-					<button type="submit" title="Submit your search query">Search</button>
-				</div>
-			</form>
-		);
-	}
+	return(
+		<form onSubmit={props.handleSubmit(value => onSubmit(value))}>
+			<div className="search-bar">
+				<Field type="search" name="searchText" id="searchtext" component={Input} palceholder="Search for Stories" autocomplete="off"/>
+				<button type="submit" title="Submit your search query">Search</button>
+			</div>
+		</form>
+	);
 }
 
 const mapStateToProps = state => ({

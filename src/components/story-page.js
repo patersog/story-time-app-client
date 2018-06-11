@@ -2,12 +2,11 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
-//import CommentSection from './comment-section';
 import {fetchStory, editStory} from '../actions/stories';
 
-import './styles/story-view.css';
+import './styles/story-page.css';
 
-export class StoryView extends Component {
+export class StoryPage extends Component {
 
 	componentDidMount() {
 		if(JSON.stringify(this.props.story) === '{}') {
@@ -30,7 +29,9 @@ export class StoryView extends Component {
 			);
 		}
 
-		const edit = this.props.isOwner ? <div className="button-holder"><button className="edit-btn" onClick={() => this.onClickEdit()}>Edit</button></div> : undefined;
+		const edit = this.props.isOwner
+			? <div className="button-holder"><button className="edit-btn" onClick={() => this.onClickEdit()}>Edit</button></div>
+			: undefined;
 
 		return(
 			<div className="story-view-container">
@@ -53,10 +54,10 @@ export class StoryView extends Component {
 }
 
 const mapStateToProps = state => ({
-	isloggedIn: state.auth.currentUser !== null,
+	isLoggedIn: state.auth.currentUser !== null,
 	isOwner: state.auth.currentUser !== null && state.auth.currentUser.username === state.view.story.username,
 	isLoading: state.view.loading,
 	story: state.view.story,
 });
 
-export default withRouter(connect(mapStateToProps)(StoryView));
+export default withRouter(connect(mapStateToProps)(StoryPage));

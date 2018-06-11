@@ -1,15 +1,11 @@
-import React, {Component} from 'react';
-//import {connect} from 'react-redux';
+import React from 'react';
 
 import './styles/comment-card.css';
 
-export class CommentCard extends Component {
-	render() {
-		return(
-			<li className="comment-card">Hey, I am a comment</li>
-		);
-	}
+export function CommentCard(props) {
+	return(
+		<li className="comment-card">Hey, I am a comment</li>
+	);
 }
 
-// export default connect()(CommentCar);
 export default CommentCard;

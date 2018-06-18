@@ -1,14 +1,13 @@
 import React from 'react';
 
 import NavigationBar from './navigation-bar';
-import LoginForm from './login-form';
 import Profile from './profile';
 
 import './styles/site-header.css';
 
 export function SiteHeader(props){
 
-	const HeaderComponent = props.isLoggedIn ? <Profile/> : <LoginForm/> ;
+	//const HeaderComponent = props.isLoggedIn ? <Profile/> : <LoginForm/> ;
 	return(
 		<header>
 			<div className="header-container">
@@ -21,7 +20,7 @@ export function SiteHeader(props){
 					</div>
 				</div>
 				<div className="right-header">
-					{HeaderComponent}
+					<Profile/>
 				</div>
 			</div>
 		</header>

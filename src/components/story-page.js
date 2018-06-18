@@ -46,7 +46,6 @@ export class StoryPage extends Component {
 					<div className="story-text">
 						<p>{this.props.story.text}</p>
 					</div>
-					{/*<CommentSection/>*/}
 				</div>
 			</div>
 		);

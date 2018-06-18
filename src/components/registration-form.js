@@ -13,14 +13,14 @@ const matchesPassword = matches('password');
 
 export function RegistrationForm(props){
 
-	onSubmit({username, password, firstName, lastName}) {
+	const onSubmit = ({username, password, firstName, lastName}) => {
 
 		const user = {username, password, firstName, lastName};
 
 		return props
 			.dispatch(registerUser(user))
 			.then(() => props.dispatch(login(username, password)));
-	}
+	};
 
 	return (
 		<form
@@ -38,7 +38,7 @@ export function RegistrationForm(props){
 				className="registration-form-input"
 				component={Input}
 				type="text"
-				name="lastName" 
+				name="lastName"
 			/>
 			<label htmlFor="username">Username</label>
 			<Field
@@ -67,7 +67,7 @@ export function RegistrationForm(props){
 			<div className="button-holder">
 				<button
 					type="submit"
-					className="registration-btn"
+					className="btn"
 					disabled={props.pristine || props.submitting}>
 					Register
 				</button>

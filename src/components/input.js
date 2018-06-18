@@ -1,44 +1,47 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles/form-input.css';
 
 export class Input extends React.Component {
-	componentDidUpdate(prevProps) {
-		if (!prevProps.meta.active && this.props.meta.active) {
-			this.input.focus();
-		}
+	onChange(value) {
+		this.props.onChange(value);
 	}
 
 	render() {
 
-		const Element = this.props.element || 'input';
+		const props = {...this.props};
 
-		let error;
-		if (this.props.meta.touched && this.props.meta.error) {
-			error =(
-				<div className="form-error-container" aria-live="polite">
-					<span className="form-error">{this.props.meta.error}</span>
-				</div>);
-		}
+		const Element = props.element || 'input';
 
 		return (
 			<fieldset>
-				<label htmlFor={this.props.input.name}>
-					{this.props.label}
+				<label htmlFor={props.name}>
+					{props.label}
 				</label>
 				<Element
-					{...this.props.input}
-					id={this.props.input.name}
-					className={this.props.className}
-					placeholder={this.props.placeholder}
-					type={this.props.type}
-					ref={input => (this.input = input)}
+					{...props}
+					name={props.name}
+					id={props.id}
+					className={props.className}
+					placeholder={props.placeholder}
+					type={props.type}
+					ref={input => this.input = input}
+					onChange={() => this.onChange(this.input.value)}
 				/>
+				<div className="form-error-container" aria-live="polite">
+					<span className="form-error-message"></span>
+				</div>
 				{this.props.children}
-				{error}
 			</fieldset>
 		);
 	}
 }
+
+Input.propTypes = {
+	children: PropTypes.node,
+	className: PropTypes.string,
+	onChange: PropTypes.func.isRequired
+};
 
 export default Input;

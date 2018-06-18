@@ -4,6 +4,8 @@
 	border-left: 0;
 	border-right: 0;
 	border-top: 0;
+	height: 3vh;
+	margin: 0.5em;
 }
 
 .registration-form-input {

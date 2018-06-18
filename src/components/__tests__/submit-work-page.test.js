@@ -1,10 +1,10 @@
 import React from 'react';
-import {StoryView} from '../story-view';
+import {SubmitWorkPage} from '../submit-work-page';
 import {shallow} from 'enzyme';
 
-describe('<StoryView />', () => {
+describe('<SubmitWorkPage />', () => {
 	//Smoke test
 	it( 'Should render without crashing', function() {
-		shallow(<StoryView />);
+		shallow(<SubmitWorkPage />);
 	});
 });

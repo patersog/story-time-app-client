@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 import SiteHeader from './site-header';
 import Routes from './routes';
@@ -18,4 +19,4 @@ const mapStateToProps = state => ({
 	isLoggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));

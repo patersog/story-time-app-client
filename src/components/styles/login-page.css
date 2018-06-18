@@ -1,4 +1,4 @@
-.registration{
+.login{
 	text-align: center;
 	margin:  0 auto;
 	padding: 0.83em;
@@ -7,13 +7,13 @@
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 }
-.registration-container {
+.login-container {
 	background-color:  ivory;
 	border-radius: 3px;
 	height: 68vh;
 }
 
-.registration-container > h2{
+.login-container > h2{
 	margin-top:0;
 	padding-top: 0.83em;
 }

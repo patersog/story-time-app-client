@@ -15,3 +15,27 @@ export const matches = field => (value, allValues) =>
 	field in allValues && value.trim() === allValues[field].trim()
 		? undefined
 		: 'Does not match';
+
+export const getValidateMessage = elem => {
+	console.log(elem.validity);
+	switch(getConstraint(elem)) {
+	case 'patternMismatch':
+		return 'please match the requested pattern';
+	case 'tooLong':
+		return `Too long (${elem.value.length}) need at most (${elem.maxLength}) characters`;
+	case 'tooShort':
+		return `Too short (${elem.value.length}) need at least (${elem.minLength}) characters`;
+	case 'valueMissing':
+		return 'Please fill out this field';
+	default:
+		return 1;
+	}
+};
+
+const getConstraint = elem => {
+	for (let constraint in elem.validity) {
+		if(elem.validity[constraint])
+			return constraint;
+	}
+	return '';
+};

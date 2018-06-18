@@ -34,8 +34,8 @@ export function SubmitWorkForm(props){
 			props.dispatch(submitNewStory(storyObj))
 				.then(res => {
 					const story = res.story;
-					const updatedStory = Object.assign({},story,{'username':props.currentUser.username});
-					props.dispatch(setStory(updatedStory));
+					const newStory = Object.assign({},story,{'username':props.currentUser.username});
+					props.dispatch(setStory(newStory));
 					props.history.push(`/${story.id}`);
 				});
 		}

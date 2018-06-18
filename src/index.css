@@ -29,6 +29,21 @@ h1 {
 	font-size: 1.75em;
 }
 
+.btn {
+	font-weight: 400;
+	border-radius: 5px;
+	color: #555;
+	padding: .33em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.btn:focus,
+.btn:hover {
+	background-color: #5CDB95;
+	color: White;
+}
+
 
 /*
 COLOR SCHEME

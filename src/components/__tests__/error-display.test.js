@@ -1,10 +1,10 @@
 import React from 'react';
-import {ErrorMessage} from '../error-message';
+import {ErrorDisplay} from '../error-display';
 import {shallow} from 'enzyme';
 
-describe('<ErrorMessage />', () => {
+describe('<ErrorDisplay />', () => {
 	//Smoke test
 	it( 'Should render without crashing', function() {
-		shallow(<ErrorMessage />);
+		shallow(<ErrorDisplay />);
 	});
 });

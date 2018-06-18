@@ -12,10 +12,13 @@ export function NavigationBar(props) {
 		<nav>
 			<ul>
 				<li className="link">
-					<Link onClick={() => props.dispatch(setStory({}))} to="/">home</Link>
+					<Link className="btn" onClick={() => props.dispatch(setStory({}))} to="/">home</Link>
 				</li>
 				<li className="link">
-					<Link onClick={() => props.dispatch(setStory({}))} to="/about">about</Link>
+					<Link className="btn" onClick={() => props.dispatch(setStory({}))} to="/about">about</Link>
+				</li>
+				<li className="link">
+					<Link className="btn" onClick={() => props.dispatch(setStory({}))} to="/register">sign up</Link>
 				</li>
 			</ul>
 		</nav>

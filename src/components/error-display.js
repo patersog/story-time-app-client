@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles/error-display.css';
 
-export function ErroMessage(props) {
+export function ErrorDisplay() {
 	return(
 		<div className="error-display">
 			<h2 className="error-display-header">
@@ -18,5 +18,5 @@ export function ErroMessage(props) {
 	);
 }
 
-export default ErroMessage;
+export default ErrorDisplay;
 

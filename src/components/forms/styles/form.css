@@ -1,0 +1,41 @@
+.form-field {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	display: block;
+	margin: 0 auto;
+}
+
+.form-label {
+	display: block;
+	margin: 0 auto;
+	width: 10em;
+	height: 1.5em;
+	border: 0;
+	padding: 0;
+}
+.form-input {
+	color: black;
+	display: block;
+	margin: 0 auto;
+	border: 0;
+	width: 10em;
+	height: 1.5em;
+	padding: 0.5em;
+	background: lightgray;
+	border-radius: 3px;
+}
+
+.form-error-container {
+	display: block;
+	margin: 0 auto;
+	background: ivory;
+	width: 10em;
+	height: 1.5em;
+	white-space: nowrap;
+}
+
+.form-error-message {
+	font-size: 0.5em;
+	color: red;
+}

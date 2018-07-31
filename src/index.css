@@ -8,14 +8,15 @@ body {
 	margin: 0;
 	padding: 0;
 	color: #555;
-	background-color: #5CDB95;
+	background-color: rgba(92, 219, 149, 1);
 }
 
 #root {
 	margin: 0 auto;
 	text-align: center;
 	max-width: 50em;
-	font-family: "Helvetica", "Arial", sans-serif;
+	/* font-family: "Helvetica", "Arial", sans-serif; */
+	font-family: 'PT Serif', serif;
 	line-height: 1.5;
 	padding: 0.5em 0.33em;
 } 
@@ -44,14 +45,15 @@ h1 {
 	color: White;
 }
 
+.btn.active {
+	background-color: #5CDB95;
+	color: White;
+}
 
-/*
-COLOR SCHEME
-
-#e27d60 red stuff
-#85dcb light blue stuff
-#e8a87c something warm
-#c38d9e soft dark pink stuff
-#41b3a3 soft teal blue stuff
-
+/* 
+	rgba(63, 75, 59, 1);	Rifle Green
+	rgba(68, 99, 63, 1);	Gray-Asparagus
+	rgba(92, 219, 149, 1);  Medium Aquamarine
+	rgba(90, 147, 103, 1);  Russian Green
+	rgba(74, 219, 200, 1);  Medium Turquoise
 */

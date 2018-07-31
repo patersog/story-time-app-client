@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './styles/action-bar.css';
 
@@ -10,7 +11,7 @@ export function ActionBar(props){
 		return <Link to="/submit">Submit A Work!</Link>;
 	};
 
-	const submitButton = props.isloggedIn ? renderSubmitButton() : undefined;
+	const submitButton = props.isLoggedIn ? renderSubmitButton() : undefined;
 	return(
 		<div className="action-bar">
 			{submitButton}
@@ -19,7 +20,11 @@ export function ActionBar(props){
 }
 
 const mapStateToProps = state => ({
-	isloggedIn : state.auth.currentUser !== null
+	isLoggedIn : state.auth.currentUser !== null
 });
+
+ActionBar.propTypes = {
+	isLoggedIn: PropTypes.bool
+};
 
 export default connect(mapStateToProps)(ActionBar);

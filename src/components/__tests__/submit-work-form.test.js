@@ -3,7 +3,6 @@ import SubmitWorkForm, {SubmitWorkForm as SWF} from '../submit-work-form';
 import {shallow,mount} from 'enzyme';
 
 import {reduxForm} from 'redux-form';
-//import {createStore} from 'redux';
 import {connect, Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import store from '../../store';

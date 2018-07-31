@@ -18,16 +18,15 @@
 }
 
 .action-display-main {
-	width: 100%;
+	width: 95%;
+	margin: 0 auto;
 	height: 68vh;
 	overflow-y: scroll;
-	background-color: #EDF5E1; 
+	background-color: #a9ada4; 
 	border-radius: 3px;
-	border-top-right-radius: 0;
-	border-top-left-radius: 0;
 }
 
-.action-display-controller::-webkit-scrollbar { 
+.action-display-main::-webkit-scrollbar { 
 	/* This is the magic bit */
 	display: none;
-  }
+}

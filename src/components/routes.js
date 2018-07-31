@@ -1,13 +1,14 @@
 import React from 'react';
-import {Route, Switch, withRouter} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import AuthRoute from './auth-route';
 import Home from './home';
-import SubmitWorkPage from './submit-work-page';
-import RegistrationPage from './registration-page';
-import LoginPage from './login-page';
+import SubmitWorkPage from './pages/submit-work-page';
+import RegistrationPage from './pages/registration-page';
+import LoginPage from './pages/login-page';
 import About from './about';
-import StoryPage from './story-page';
+import StoryPage from './pages/story-page';
 import DoesNotExist from './does-not-exist';
 
 export function Routes(props) {
@@ -17,11 +18,15 @@ export function Routes(props) {
 			<Route path="/login" component={LoginPage}/>
 			<Route path="/register" component={RegistrationPage}/>
 			<Route path="/about" component={About}/>
-			<AuthRoute path="/submit" component={SubmitWorkPage} loggedIn={props.isloggedIn}/>
 			<Route path="/:id" component={StoryPage}/>
+			<AuthRoute path="/submit" component={SubmitWorkPage} loggedIn={props.isloggedIn}/>
 			<Route render={() => DoesNotExist()}/>
 		</Switch>
 	);
 }
+
+Routes.propTypes = {
+	isloggedIn: PropTypes.bool
+};
 
 export default Routes;

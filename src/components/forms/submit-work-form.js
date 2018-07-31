@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import {reduxForm,Field} from 'redux-form';
 import {withRouter} from 'react-router-dom';
 
-import {submitNewStory, submitEditedStory, setStory, editStory} from '../actions/stories';
-import {required, nonEmpty} from '../validators';
+import {submitNewStory, submitEditedStory, setStory, editStory} from '../../actions/stories';
+import {required, nonEmpty} from '../../validators';
 
 import './styles/submit-work-form.css';
 

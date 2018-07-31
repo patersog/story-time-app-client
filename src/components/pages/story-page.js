@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import {fetchStory, editStory} from '../actions/stories';
+import {fetchStory, editStory} from '../../actions/stories';
 
 import './styles/story-page.css';
 
@@ -58,5 +59,16 @@ const mapStateToProps = state => ({
 	isLoading: state.view.loading,
 	story: state.view.story,
 });
+
+StoryPage.propTypes = {
+	isLoading: PropTypes.bool,
+	isLoggedIn: PropTypes.bool,
+	isOwner: PropTypes.bool,
+	story: PropTypes.shape({
+		title: PropTypes.string,
+		username: PropTypes.string,
+		text: PropTypes.string
+	})
+};
 
 export default withRouter(connect(mapStateToProps)(StoryPage));

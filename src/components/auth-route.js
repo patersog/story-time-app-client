@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route, Redirect} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const AuthRoute = ({component: Component, ...rest}) => {
 	return (
@@ -9,6 +10,10 @@ export const AuthRoute = ({component: Component, ...rest}) => {
 		}}
 		/>
 	);
+};
+
+AuthRoute.propTypes = {
+	component: PropTypes.func
 };
 
 export default AuthRoute;

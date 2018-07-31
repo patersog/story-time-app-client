@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import ActionBar from './action-bar';
 import StoryList from './story-list';
-import StoryPage from './story-page';
+import StoryPage from './pages/story-page';
 
 import './styles/list-action-display.css';
 

@@ -2,7 +2,6 @@
 	background-color: ivory;
 	border-radius: 3px;
 	margin: 1.0em;
-	margin-top: 0em;
 	padding: 0.33em;
 }
 
@@ -13,12 +12,9 @@
 	margin: 0.5em;
 }
 
-
-. date > h5 {
+.date > h5 {
 	margin: 0.3em;
 }
-
-
 
 .title-author {
 	display: flex;

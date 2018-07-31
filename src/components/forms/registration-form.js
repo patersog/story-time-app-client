@@ -1,10 +1,10 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 
-import Input from './input';
-import {registerUser} from '../actions/users';
-import {login} from '../actions/auth';
-import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+// import Input from './input';
+import {registerUser} from '../../actions/users';
+import {login} from '../../actions/auth';
+import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 
 import './styles/registration-form.css';
 
@@ -29,21 +29,18 @@ export function RegistrationForm(props){
 			<label htmlFor="firstName">First name</label>
 			<Field
 				className="registration-form-input"
-				component={Input}
 				type="text"
 				name="firstName"
 			/>
 			<label htmlFor="lastName">Last name</label>
 			<Field
 				className="registration-form-input"
-				component={Input}
 				type="text"
 				name="lastName"
 			/>
 			<label htmlFor="username">Username</label>
 			<Field
 				className="registration-form-input"
-				component={Input}
 				type="text"
 				name="username"
 				validate={[required, nonEmpty, isTrimmed]}
@@ -51,7 +48,6 @@ export function RegistrationForm(props){
 			<label htmlFor="password">Password</label>
 			<Field
 				className="registration-form-input"
-				component={Input}
 				type="password"
 				name="password"
 				validate={[required, passwordLength, isTrimmed]}
@@ -59,7 +55,6 @@ export function RegistrationForm(props){
 			<label htmlFor="passwordConfirm">Confirm password</label>
 			<Field
 				className="registration-form-input"
-				component={Input}
 				type="password"
 				name="passwordConfirm"
 				validate={[required, nonEmpty, matchesPassword]}

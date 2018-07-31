@@ -31,6 +31,7 @@ header {
 h1 {
 	text-align: center;
 	margin: 0.25em auto;
+	font-size: 2em;
 }
 
 
@@ -42,10 +43,18 @@ h1 {
 }
 
 .right-header {
+	margin: 1em 0;
 	order: 2;
-	justify-content: center;
+	flex-direction: column
 }
 
+.right-header-left {
+
+}
+
+.right-header-right {
+	margin: 0 auto;
+}
 
 @media screen and (min-width: 500px) {
 	.header-container {

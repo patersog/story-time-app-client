@@ -11,15 +11,22 @@ export function SiteHeader(props){
 		<header>
 			<div className="header-container">
 				<div className="left-header">
-					<div className="left-header-left">
+					<h1>Storytime</h1>
+					{/* <div className="left-header-left">
 						<h1>Storytime</h1>
 					</div>
 					<div className="left-header-right">
 						<NavigationBar location={props.location} currentUser={props.currentUser} dispatch={props.dispatch}/>
-					</div>
+					</div> */}
 				</div>
 				<div className="right-header">
-					<Profile currentUser={props.currentUser} dispatch={props.dispatch}/>
+					{/* <Profile currentUser={props.currentUser} dispatch={props.dispatch}/> */}
+					<div className="right-header-left">
+						<Profile currentUser={props.currentUser} dispatch={props.dispatch}/>
+					</div>
+					<div className="right-header-right">
+						<NavigationBar location={props.location} currentUser={props.currentUser} dispatch={props.dispatch}/>
+					</div>
 				</div>
 			</div>
 		</header>

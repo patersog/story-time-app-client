@@ -9,9 +9,7 @@ import './styles/home.css';
 export function Home(props){
 	const component = !props.error ? <ListActionDisplay/> : <ErrorDisplay error={props.error}/>;
 	return (
-		<main className="main">
-			{component}
-		</main>
+		component
 	);
 }
 

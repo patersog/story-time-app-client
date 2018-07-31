@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import SiteHeader from './site-header';
 import Routes from './routes';
+
 import './styles/app.css';
 
 export function App(props) {
@@ -12,7 +13,9 @@ export function App(props) {
 	return (
 		<div className="app">
 			<SiteHeader location={location} currentUser={currentUser} dispatch={dispatch}/>
-			<Routes isLoggedIn={isLoggedIn}/>
+			<main className="main">
+				<Routes isLoggedIn={isLoggedIn}/>
+			</main>
 		</div>
 	);
 }

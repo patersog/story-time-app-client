@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import ActionBar from './action-bar';
 import StoryList from './story-list';
@@ -20,14 +21,23 @@ export function ListActionDisplay(props){
 			</h2>
 			<ActionBar/>
 			<div className="action-display-main">
-				<StoryList/>
+				<StoryList dispatch={props.dispatch}/>
 			</div>
 		</div>
 	);
 }
 
 const mapStateToProps = state => ({
-	story: JSON.stringify(state.view.story) !== '{}'
+	story: JSON.stringify(state.view.story) !== '{}',
+	isLoading: state.view.loading,
+	stories: state.view.stories
 });
+
+ListActionDisplay.propTypes = {
+	story: PropTypes.bool,
+	isLoading: PropTypes.bool,
+	stories: PropTypes.arrayOf(PropTypes.object),
+	dispatch: PropTypes.func,
+};
 
 export default connect(mapStateToProps)(ListActionDisplay);

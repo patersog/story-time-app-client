@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import StoryCard from './story-card';
 import {fetchStories} from '../actions/stories';
 
 import './styles/story-list.css';
 
-
 export class StoryList extends Component {
 
-	constructor(props) {
-		super(props);
-		props.dispatch(fetchStories());
+	componentDidMount() {
+		this.props.dispatch(fetchStories());
 	}
 
 	render() {
@@ -21,7 +20,7 @@ export class StoryList extends Component {
 			);
 		}
 		const stories = this.props.stories.map((story, i) => {
-			return <StoryCard key={i} story={story}/>;
+			return <StoryCard dispatch={this.props.dispatch} key={i} story={story}/>;
 		});
 
 		return (
@@ -36,5 +35,11 @@ const mapStateToProps = state => ({
 	isLoading: state.view.loading,
 	stories: state.view.stories
 });
+
+StoryList.propTypes = {
+	isLoading: PropTypes.bool,
+	stories: PropTypes.arrayOf(PropTypes.object),
+	dispatch: PropTypes.func
+};
 
 export default connect(mapStateToProps)(StoryList);

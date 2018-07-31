@@ -68,7 +68,10 @@ StoryPage.propTypes = {
 		title: PropTypes.string,
 		username: PropTypes.string,
 		text: PropTypes.string
-	})
+	}),
+	dispatch: PropTypes.func,
+	history: PropTypes.object,
+	match: PropTypes.object
 };
 
 export default withRouter(connect(mapStateToProps)(StoryPage));

@@ -1,9 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Field from './field';
 import Form from './form';
 
-import './styles/login-form.css';
+import {login} from '../../actions/auth';
 
 export class LoginForm extends React.Component {
 
@@ -27,6 +28,7 @@ export class LoginForm extends React.Component {
 		return(
 			<Form
 				onSubmit={this.submit}
+				{...this.props}
 			>
 				<Field
 					label="username"
@@ -34,8 +36,9 @@ export class LoginForm extends React.Component {
 					type="text"
 					minLength={10}
 					maxLength={72}
-					pattern="(?=.*\d)(?=.*[a-z]).{2,}"
+					pattern="^([a-zA-Z0-9].{8,72})$"
 					onChange={dataObj => this.changeHandler(dataObj)}
+					tooltip={'Must contain only letters and numbers, between 8 and 72 characters in length'}
 					required
 				/>
 				<Field
@@ -44,8 +47,9 @@ export class LoginForm extends React.Component {
 					type="password"
 					minLength={8}
 					maxLength={72}
-					pattern="(?=.*\d)(?=.*[a-z]).{2,}"
+					pattern="^([a-zA-Z0-9].{8,72})$"
 					onChange={dataObj => this.changeHandler(dataObj)}
+					tooltip={'Must contain only letters and numbers, between 8 and 72 characters in length'}
 					required
 				/>
 				<div className="login-button-holder">
@@ -56,4 +60,4 @@ export class LoginForm extends React.Component {
 	}
 }
 
-export default LoginForm;
+export default connect()(LoginForm);

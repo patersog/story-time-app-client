@@ -15,7 +15,7 @@ export function ListActionDisplay(props){
 	}
 
 	return(
-		<div className="action-display">
+		<section className="action-display">
 			<h2 className="action-display-header">
 					Browse The Short Stories
 			</h2>
@@ -23,7 +23,7 @@ export function ListActionDisplay(props){
 			<div className="action-display-main">
 				<StoryList dispatch={props.dispatch}/>
 			</div>
-		</div>
+		</section>
 	);
 }
 

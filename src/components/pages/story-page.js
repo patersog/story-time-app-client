@@ -35,7 +35,7 @@ export class StoryPage extends Component {
 			: undefined;
 
 		return(
-			<div className="story-view-container">
+			<article className="story">
 				<div className="story-container">
 					<div className="info-container">
 						<div className="story-title-author">
@@ -48,7 +48,7 @@ export class StoryPage extends Component {
 						<p>{this.props.story.text}</p>
 					</div>
 				</div>
-			</div>
+			</article>
 		);
 	}
 }

@@ -3,8 +3,8 @@
 }
 
 .main {
-	background-color:  #EDF5E1;
+	background-color:  #dbe3ce;
+	border-radius: 3px;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
-	border-radius: 4px;
 }

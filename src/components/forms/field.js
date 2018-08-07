@@ -5,9 +5,17 @@ import './styles/form.css';
 
 class Field extends React.Component {
 
+	state = {
+		tooltip: false
+	};
+
 	changeHandler(input) {
 		const {name,value} = input;
 		this.props.onChange({name: name, value: value});
+	}
+
+	toolTipClick() {
+
 	}
 
 	render() {
@@ -15,32 +23,41 @@ class Field extends React.Component {
 		const {props} = this;
 
 		const Element = props.element || 'input';
-		const format = props.format || undefined;
+
+		const tooltip = props.tooltip
+			? (
+				<div className="tooltip-wrapper">
+					<button type="button" aria-label="tool tip" className="tooltip-button"><i className="fa fa-question-circle" aria-hidden="true"></i></button>
+					<span className="tooltip-message">{props.tooltip}</span>
+				</div>
+			)
+			:undefined;
+
 
 		return (
-			<fieldset className="form-field">
+			<div className="form-field">
 				<label
 					htmlFor={props.name}
 					className="form-label"
 				>
 					{props.label}
+					<Element
+						className="form-element"
+						{...props}
+						name={props.name}
+						id={props.id}
+						placeholder={props.placeholder}
+						type={props.type}
+						ref={input => this.input = input}
+						onChange={() => this.changeHandler(this.input)}
+					/>
+					{tooltip}
 				</label>
-				<Element
-					{...props}
-					className="form-input"
-					name={props.name}
-					id={props.id}
-					placeholder={props.placeholder}
-					type={props.type}
-					ref={input => this.input = input}
-					onChange={() => this.changeHandler(this.input)}
-				/>
-				<div className="format-text">{format}</div>
 				<div className="form-error-container" aria-live="polite">
 					<span className="form-error-message"></span>
 				</div>
 				{props.children}
-			</fieldset>
+			</div>
 		);
 	}
 }

@@ -3,16 +3,13 @@ import React from 'react';
 import Page from './page';
 import RegistrationForm from '../forms/registration-form';
 
-import './styles/registration-page.css';
-
-export function RegistrationPage() {
-
+export function RegistrationPage(props) {
+	console.log('registration page', props);
 	return (
 		<Page>
-			<section className="registration">
-				<div className="registration-container">
-					<h2>Register</h2>
-					<RegistrationForm/>
+			<section className="registration sec">
+				<div className="sec-container">
+					<RegistrationForm title={'register'}/>
 				</div>
 			</section>
 		</Page>

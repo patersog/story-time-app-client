@@ -1,34 +1,68 @@
 .form-field {
 	border: 0;
 	padding: 0;
-	margin: 0;
-	display: block;
 	margin: 0 auto;
+	position: relative;
 }
 
 .form-label {
-	display: block;
 	margin: 0 auto;
-	width: 10em;
-	height: 1.5em;
 	border: 0;
 	padding: 0;
 }
-.form-input {
+
+input[type=text]:focus {
+	border-color:lightblue;
+	box-shadow:0 0 8px 0 lightblue;
+}
+
+input[type=text] {
 	color: black;
 	display: block;
 	margin: 0 auto;
 	border: 0;
 	width: 10em;
 	height: 1.5em;
-	padding: 0.5em;
+	padding-right: 1.233em;
 	background: lightgray;
 	border-radius: 3px;
 }
 
-.form-error-container {
+input[type=password]:focus {
+	border-color:lightblue;
+	box-shadow:0 0 8px 0 lightblue;
+}
+
+input[type=password] {
+	color: black;
 	display: block;
 	margin: 0 auto;
+	border: 0;
+	width: 10em;
+	height: 1.5em;
+	padding-right: 1.233em;
+	background: lightgray;
+	border-radius: 3px;
+}
+
+.form-element {
+	margin-bottom: 0.1em;
+}
+
+.form-fieldset {
+	border: none;
+}
+
+.form-legend {
+	font-size: 1.333em;
+	font-weight: 1000;
+	padding-top: 1.0em;
+	margin: 0 auto;
+}
+
+.form-error-container {
+	display: block;
+	margin: 0.1em auto 0.1em;
 	background: ivory;
 	width: 10em;
 	height: 1.5em;
@@ -36,6 +70,46 @@
 }
 
 .form-error-message {
-	font-size: 0.5em;
+	text-transform: none;
+	font-size: 0.6em;
 	color: red;
+}
+
+.tooltip-wrapper {
+	position: absolute;
+	background: transparent;
+	top: calc(50% - 0.7666em);
+	left: calc(50% + 3.8233em);
+}
+
+.tooltip-button {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background: transparent;
+}
+
+.tooltip-message {
+	text-transform: none;
+	font-size: 0.75em;
+	position: absolute;
+	right: -7.5666em;
+	top: 0.233em;
+	transition: all 0.8s;
+	opacity: 0;
+	white-space: nowrap;
+	pointer-events: none;
+}
+
+.tooltip-button:focus + .tooltip-message {
+	opacity: 1;
+}
+
+
+.tooltip-wrapper:hover > .tooltip-message {
+	opacity: 1;
+}
+
+.tooltip-wrapper:focus > .tooltip-message {
+	opacity: 1;
 }

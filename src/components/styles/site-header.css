@@ -3,8 +3,8 @@
 }
 
 header {
-	padding: 0.83em;
-	background-color:  #EDF5E1;
+	padding: 1.233em;
+	background-color:  #dbe3ce;
 	border-radius: 3px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
@@ -21,6 +21,11 @@ header {
 .left-header {
 	flex-direction: column;
 	order: 1;
+	font-size: 0.8em;
+}
+
+.right-header {
+	font-size: 0.8em;
 }
 
 .left-header-left {
@@ -48,15 +53,11 @@ h1 {
 	flex-direction: column
 }
 
-.right-header-left {
-
-}
-
-.right-header-right {
+.right-header-right, .right-header-left {
 	margin: 0 auto;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 720px) {
 	.header-container {
 		flex-direction: row;
 		justify-content: space-evenly;
@@ -64,6 +65,15 @@ h1 {
 
 	.left-header {
 		justify-content: center;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.left-header {
+		font-size: 1.0em;
+	}
+	.right-header {
+		font-size: 1.0em;
 	}
 }
 

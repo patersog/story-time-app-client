@@ -3,15 +3,13 @@ import React from 'react';
 import Page from './page';
 import SubmitWorkForm from '../forms/submit-work-form';
 
-import './styles/submit-work-page.css';
-
 export function SubmitWorkPage() {
 
 	return (
 		<Page>
-			<section className="submit-work">
-				<div className="submit-work-container">
-					<SubmitWorkForm/>
+			<section className="submit-work sec">
+				<div className="sec-container">
+					<SubmitWorkForm title={'submit work'}/>
 				</div>
 			</section>
 		</Page>

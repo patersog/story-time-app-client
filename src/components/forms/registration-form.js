@@ -1,80 +1,112 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import {connect} from 'react-redux';
 
-// import Input from './input';
+import Form from './form';
+import Field from './field';
+
 import {registerUser} from '../../actions/users';
 import {login} from '../../actions/auth';
-import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
+import {empty as isEmpty, matches, length, trimmed as isTrimmed} from '../../validators';
 
-import './styles/registration-form.css';
-
-const passwordLength = length({min: 10, max: 72});
+const isLongEnough = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
-export function RegistrationForm(props){
+/**
+ * regex for username and password ^[a-zA-Z0-9].{8,72}$
+ * Assumes that all input will be exclusively text and digits between 8 and 72 characters in length,
+ */
 
-	const onSubmit = ({username, password, firstName, lastName}) => {
+export class RegistrationForm extends React.Component {
 
-		const user = {username, password, firstName, lastName};
-
-		return props
-			.dispatch(registerUser(user))
-			.then(() => props.dispatch(login(username, password)));
+	state = {
+		error: null
 	};
 
-	return (
-		<form
-			className="registration-form"
-			onSubmit={props.handleSubmit(values => onSubmit(values))}>
-			<label htmlFor="firstName">First name</label>
-			<Field
-				className="registration-form-input"
-				type="text"
-				name="firstName"
-			/>
-			<label htmlFor="lastName">Last name</label>
-			<Field
-				className="registration-form-input"
-				type="text"
-				name="lastName"
-			/>
-			<label htmlFor="username">Username</label>
-			<Field
-				className="registration-form-input"
-				type="text"
-				name="username"
-				validate={[required, nonEmpty, isTrimmed]}
-			/>
-			<label htmlFor="password">Password</label>
-			<Field
-				className="registration-form-input"
-				type="password"
-				name="password"
-				validate={[required, passwordLength, isTrimmed]}
-			/>
-			<label htmlFor="passwordConfirm">Confirm password</label>
-			<Field
-				className="registration-form-input"
-				type="password"
-				name="passwordConfirm"
-				validate={[required, nonEmpty, matchesPassword]}
-			/>
-			<div className="button-holder">
-				<button
-					type="submit"
-					className="btn"
-					disabled={props.pristine || props.submitting}>
-					Register
-				</button>
-			</div>
-		</form>
-	);
+	validatePassword = () => {
+
+	}
+
+	changeHandler = (dataObj) => {
+		const{name, value} = dataObj;
+		let field = {};
+		field[name] = value;
+		this.setState((prevState) => {
+			return Object.assign(prevState, field);
+		});
+	}
+
+	submit = () => {
+
+	};
+
+	render() {
+
+		let error = null;
+		if(this.state.error) {
+			error = (
+				<div className="form-error" aria-live="polite">
+					{this.props.error}
+				</div>
+			);
+		}
+
+		return (
+			<Form
+				onSubmit={this.submit}
+				{...this.props}
+			>
+				<Field
+					label="first name"
+					name="firstName"
+					type="text"
+					onChange={dataObj => this.changeHandler(dataObj)}
+				/>
+				<Field
+					label="last name"
+					name="lastName"
+					type="text"
+					onChange={dataObj => this.changeHandler(dataObj)}
+				/>
+				<Field
+					label="username"
+					name="username"
+					type="text"
+					minLength={10}
+					maxLength={72}
+					pattern="^([a-zA-Z0-9].{8,72})$"
+					onChange={dataObj => this.changeHandler(dataObj)}
+					tooltip={'I am a tooltip'}
+					required
+				/>
+				<Field
+					label="password"
+					name="password"
+					type="password"
+					minLength={8}
+					maxLength={72}
+					pattern="^([a-zA-Z0-9]{8,72})$"
+					onChange={dataObj => this.changeHandler(dataObj)}
+					tooltip={'I am a tooltip'}
+					required
+				/>
+				<Field
+					label="confirm password"
+					type="password"
+					name="passwordConfirm"
+					onChange={dataObj => this.changeHandler(dataObj)}
+					required
+				/>
+				<div className="button-holder">
+					<button
+						type="submit"
+						className="btn"
+					>
+						Register
+					</button>
+				</div>
+			</Form>
+		);
+	}
 }
 
-export default reduxForm({
-	form: 'registration',
-	onSubmitFail: (errors, dispatch) => {
-		console.log(errors);
-		dispatch(focus('registration', Object.keys(errors)[0]));
-	}
-})(RegistrationForm);
+export default connect()(RegistrationForm);

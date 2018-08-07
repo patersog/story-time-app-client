@@ -3,8 +3,9 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export function Page(props) {
+import './styles/page.css';
 
+export function Page(props) {
 	if (props.isLoggedIn) {
 		return <Redirect to="/"/>;
 	}
@@ -22,7 +23,8 @@ const mapStateToProps = state => ({
 
 Page.propTypes = {
 	isLoggedIn: PropTypes.bool,
-	children: PropTypes.any
+	children: PropTypes.any,
+	dispatch: PropTypes.func
 };
 
 export default connect(mapStateToProps)(Page);

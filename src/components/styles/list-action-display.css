@@ -5,9 +5,9 @@
 }
 
 .action-display-header {
-	margin: 0;
-	padding-bottom:0.73em;
-	background-color:  #EDF5E1;
+	margin-top: 0;
+	margin-bottom: 2.0em;
+	background-color:  #dbe3ce;
 	text-align: center;
 	width: 100%;
 }
@@ -19,8 +19,8 @@
 
 .action-display-main {
 	width: 95%;
-	margin: 0 auto;
-	height: 68vh;
+	margin: 0 auto 1.233em;
+	height: 73vh;
 	overflow-y: scroll;
 	background-color: #a9ada4; 
 	border-radius: 3px;

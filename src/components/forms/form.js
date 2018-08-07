@@ -29,7 +29,7 @@ export class Form extends React.Component {
 			for (let i = 0; i < formLength; i++) {
 				const elem = formEl[i];
 				if (elem.nodeName.toLowerCase() !== 'button' && elem.nodeName.toLowerCase() !== 'fieldset' ) {
-					const errorMessage = elem.parentNode.querySelector('.form-error-message');
+					const errorMessage = elem.parentNode.parentNode.querySelector('.form-error-message');
 					if (!elem.validity.valid) {
 						errorMessage.textContent = elem.validationMessage;
 					} else {
@@ -43,7 +43,7 @@ export class Form extends React.Component {
 		for (let i = 0; i < formLength; i++) {
 			const elem = formEl[i];
 			if (elem.nodeName.toLowerCase() !== 'button' && elem.nodeName.toLowerCase() !== 'fieldset' ) {
-				const errorMessage = elem.parentNode.querySelector('.form-error-message');
+				const errorMessage = elem.parentNode.parentNode.querySelector('.form-error-message');
 				errorMessage.textContent = '';
 			}
 		}
@@ -59,14 +59,17 @@ export class Form extends React.Component {
 	}
 
 	render() {
+		const title = this.props.title ? this.props.title : undefined;
 		return (
 			<form
-				{...this.props}
 				ref={form => (this.formEl = form)}
 				onSubmit={(e) => this.submitHandler(e)}
 				noValidate
 			>
-				{this.props.children}
+				<fieldset className="form-fieldset">
+					<legend className="form-legend">{title}</legend>
+					{this.props.children}
+				</fieldset>
 			</form>
 		);
 	}
@@ -75,7 +78,8 @@ export class Form extends React.Component {
 Form.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
-	onSubmit: PropTypes.func.isRequired
+	onSubmit: PropTypes.func.isRequired,
+	title: PropTypes.string
 };
 
 export default Form;

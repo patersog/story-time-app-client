@@ -1,6 +1,7 @@
  .story-card {
 	background-color: ivory;
 	border-radius: 3px;
+	display: block;
 	margin: 1.0em;
 	padding: 0.33em;
 }

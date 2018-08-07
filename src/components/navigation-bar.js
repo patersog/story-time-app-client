@@ -22,7 +22,7 @@ export function NavigationBar(props) {
 						<Link className={'btn' + ((location.pathname === '/about') ? ' active' : '')} role="button" onClick={() => props.dispatch(setStory({}))} to="/about">about</Link>
 					</li>
 					<li className="link">
-						<Link to="/" className="btn" role="button" onClick={() => props.dispatch(clearAuth())}>Logout</Link>
+						<Link to="/" className="btn" role="button" onClick={() => props.dispatch(clearAuth())}>logout</Link>
 					</li>
 				</ul>
 			</nav>
@@ -39,7 +39,7 @@ export function NavigationBar(props) {
 					<Link className={'btn' + ((location.pathname === '/about') ? ' active' : '')} onClick={() => props.dispatch(setStory({}))} to="/about">about</Link>
 				</li>
 				<li className="link">
-					<Link className={'btn' + ((location.pathname === '/register') ? ' active' : '')} onClick={() => props.dispatch(setStory({}))} to="/register">sign up</Link>
+					<Link className={'btn' + ((location.pathname === '/register') ? ' active' : '')} onClick={() => props.dispatch(setStory({}))} to="/register">sign-up</Link>
 				</li>
 				<li className="link">
 					<Link className='btn' onClick={() => props.dispatch(setStory({}))} to="/login">login</Link>

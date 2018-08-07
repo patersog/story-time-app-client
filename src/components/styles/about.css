@@ -1,25 +1,26 @@
 .about {
 	display: flex;
 	flex-direction: column;
-	background-color:  #EDF5E1;
+	background-color:  ivory;
 	border-radius: 3px;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
-	height: 70vh;
-	text-align: center;
-	padding: 0.83em;
-	padding-top: 0em;
+	height: 73vh;
+	margin: 0 0.83em 0.83em;
 }
 
 .about-header {
 	margin-top:0;
 	padding-top: 0.83em;
+	margin-bottom: 2.0em;
 }
 
-.about-text {
-
+.about-text > p {
+	text-indent: 1em;
+	text-align: justify;
+	margin: 0 2em;
 }
 
 .about-list {
+	margin-left: 2em;
+	text-align: left;
 	list-style: none;
 }

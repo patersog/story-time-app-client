@@ -2,11 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {reduxForm,Field} from 'redux-form';
 import {withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import {submitNewStory, submitEditedStory, setStory, editStory} from '../../actions/stories';
-import {required, nonEmpty} from '../../validators';
-
-import './styles/submit-work-form.css';
+import {required, empty} from '../../validators';
 
 export function SubmitWorkForm(props){
 
@@ -44,7 +43,8 @@ export function SubmitWorkForm(props){
 		<form
 			className="submit-work-form"
 			onSubmit={props.handleSubmit(values => onSubmit(values))}>
-			<fieldset className="title-fldst">
+			<fieldset className="story-fldst">
+				<legend>Submit Story</legend>
 				<label htmlFor="title" className="submit-form-label">title</label >
 				<Field
 					className="submit-form-input"
@@ -53,31 +53,13 @@ export function SubmitWorkForm(props){
 					id="title"
 					placeholder="Title Goes Here!"
 					name="title"
-					validate={[required, nonEmpty]}
+					validate={[required, empty]}
 				/>
-			</fieldset>
-			{/* <fieldset className="genre-fldst">
-					<label htmlFor="genre">genre</label>
-					<Field
-						name="genre"
-						id="genre"
-						component="select"
-						validate={[required, nonEmpty]}
-					>
-						<option>SELECT YOUR GENRE</option>
-						<option value="horror">horror</option>
-						<option value="comedy">comedy</option>
-						<option value="sci-fi">sci-fi</option>
-						<option value="mystery">mystery</option>
-						<option value="fantasy">fantasy</option>
-					</Field>
-				</fieldset> */}
-			<fieldset className="text-fldst">
 				<label htmlFor="storytext" className="submit-form-label">story</label>
 				<Field
 					placeholder='Story Goes Here!'
 					component="textarea"
-					validate={[required, nonEmpty]}
+					validate={[required, empty]}
 					name="text"
 					id="text"
 					autoComplete="off"
@@ -90,13 +72,18 @@ export function SubmitWorkForm(props){
 					aria-autocomplete="list"
 					aria-haspopup="true"
 				/>
+				<div className="button-holder">
+					<button className="submit-btn" type="submit" disabled={props.pristine || props.submitting}>Submit Story</button>
+				</div>
 			</fieldset>
-			<div className="button-holder">
-				<button className="submit-btn" type="submit" disabled={props.pristine || props.submitting}>Submit Story</button>
-			</div>
 		</form>
 	);
 }
+
+SubmitWorkForm.propTypes = {
+	editing: PropTypes.bool,
+	dispatch: PropTypes.func
+};
 
 let submitWorkForm = reduxForm({
 	form:'submitwork'

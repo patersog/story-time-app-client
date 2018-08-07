@@ -12,12 +12,6 @@ export function SiteHeader(props){
 			<div className="header-container">
 				<div className="left-header">
 					<h1>Storytime</h1>
-					{/* <div className="left-header-left">
-						<h1>Storytime</h1>
-					</div>
-					<div className="left-header-right">
-						<NavigationBar location={props.location} currentUser={props.currentUser} dispatch={props.dispatch}/>
-					</div> */}
 				</div>
 				<div className="right-header">
 					{/* <Profile currentUser={props.currentUser} dispatch={props.dispatch}/> */}

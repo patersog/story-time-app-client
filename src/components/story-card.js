@@ -30,7 +30,7 @@ export function StoryCard (props) {
 					<h5 className="card-created">{`written: ${created}`}</h5>
 					<h5 className="card-updated">{`edited: ${updated}`}</h5>
 				</div>
-				<button onClick={() => onClick()}><i className="fab fa-readme"></i></button>
+				<button aria-label={`read ${title}`} onClick={() => onClick()}><i className="fab fa-readme" role="presentation"></i></button>
 			</div>
 		</li>
 	);

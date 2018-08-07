@@ -3,8 +3,7 @@ import React from 'react';
 import Page from './page';
 import RegistrationForm from '../forms/registration-form';
 
-export function RegistrationPage(props) {
-	console.log('registration page', props);
+export function RegistrationPage() {
 	return (
 		<Page>
 			<section className="registration sec">

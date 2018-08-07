@@ -4,8 +4,7 @@ import {connect} from 'react-redux';
 import Form from './form';
 import Field from './field';
 
-import {registerUser} from '../../actions/users';
-import {login} from '../../actions/auth';
+import {login, registerUser} from '../../actions/auth';
 import {empty as isEmpty, matches, length, trimmed as isTrimmed} from '../../validators';
 
 const isLongEnough = length({min: 10, max: 72});
@@ -36,16 +35,16 @@ export class RegistrationForm extends React.Component {
 	}
 
 	submit = () => {
-
+		console.log(this.state);
 	};
 
 	render() {
 
-		let error = null;
+		let error = undefined;
 		if(this.state.error) {
 			error = (
 				<div className="form-error" aria-live="polite">
-					{this.props.error}
+					{this.state.error}
 				</div>
 			);
 		}
@@ -75,7 +74,7 @@ export class RegistrationForm extends React.Component {
 					maxLength={72}
 					pattern="^([a-zA-Z0-9].{8,72})$"
 					onChange={dataObj => this.changeHandler(dataObj)}
-					tooltip={'I am a tooltip'}
+					title={'must contain at least 8 letters and/or numbers'}
 					required
 				/>
 				<Field
@@ -86,7 +85,7 @@ export class RegistrationForm extends React.Component {
 					maxLength={72}
 					pattern="^([a-zA-Z0-9]{8,72})$"
 					onChange={dataObj => this.changeHandler(dataObj)}
-					tooltip={'I am a tooltip'}
+					title={'must contain at least 8 letters and/or numbers'}
 					required
 				/>
 				<Field
@@ -94,13 +93,12 @@ export class RegistrationForm extends React.Component {
 					type="password"
 					name="passwordConfirm"
 					onChange={dataObj => this.changeHandler(dataObj)}
+					title={'must match password'}
 					required
 				/>
+				{error}
 				<div className="button-holder">
-					<button
-						type="submit"
-						className="btn"
-					>
+					<button type="submit" className="btn">
 						Register
 					</button>
 				</div>
@@ -109,4 +107,8 @@ export class RegistrationForm extends React.Component {
 	}
 }
 
-export default connect()(RegistrationForm);
+const mapStateToProps = state => ({
+	registrationError: state.auth.error
+});
+
+export default connect(mapStateToProps)(RegistrationForm);

@@ -9,10 +9,7 @@ import {login} from '../../actions/auth';
 export class LoginForm extends React.Component {
 
 	state = {
-	}
-
-	submit = () => {
-		console.log(this.state);
+		error: null
 	}
 
 	changeHandler = (dataObj) => {
@@ -24,7 +21,21 @@ export class LoginForm extends React.Component {
 		});
 	}
 
+	submit = () => {
+		console.log(this.state);
+	}
+
 	render() {
+
+		let error = null;
+		if(this.state.error) {
+			error = (
+				<div className="form-error" aria-live="polite">
+					{this.state.error}
+				</div>
+			);
+		}
+
 		return(
 			<Form
 				onSubmit={this.submit}
@@ -38,7 +49,7 @@ export class LoginForm extends React.Component {
 					maxLength={72}
 					pattern="^([a-zA-Z0-9].{8,72})$"
 					onChange={dataObj => this.changeHandler(dataObj)}
-					tooltip={'Must contain only letters and numbers, between 8 and 72 characters in length'}
+					title={'must contain at least 8 letters and/or numbers'}
 					required
 				/>
 				<Field
@@ -49,15 +60,28 @@ export class LoginForm extends React.Component {
 					maxLength={72}
 					pattern="^([a-zA-Z0-9].{8,72})$"
 					onChange={dataObj => this.changeHandler(dataObj)}
-					tooltip={'Must contain only letters and numbers, between 8 and 72 characters in length'}
+					title={'must contain at least 8 letters and/or numbers'}
 					required
 				/>
+				{error}
 				<div className="login-button-holder">
-					<button className="btn login" type="submit">log in</button>
+					<button
+						data-tooltip
+						aria-haspopup="true"
+						className="btn login"
+						type="submit"
+						title={'login'}
+					>
+					log in
+					</button>
 				</div>
 			</Form>
 		);
 	}
 }
 
-export default connect()(LoginForm);
+const mapStateToProps = state => ({
+	loginError: state.auth.error
+});
+
+export default connect(mapStateToProps)(LoginForm);

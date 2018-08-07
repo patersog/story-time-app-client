@@ -70,8 +70,6 @@ export const login = (username, password) => dispatch => {
 				const {code} = err;
 				const message = code === 401 ? 'Incorrect username or password' : 'Unable to login, please try again';
 				dispatch(authError(err));
-				// Could not authenticate, so return a SubmissionError for Redux
-				// Form
 				return Promise.reject(
 					new SubmissionError({
 						_error: message
@@ -100,5 +98,32 @@ export const refreshAuthToken = () => (dispatch, getState) => {
 			// them and sign us out
 			dispatch(authError(err));
 			dispatch(clearAuth());
+		});
+};
+
+export const registerUser = user => dispatch => {
+	return fetch(`${API_BASE_URL}/users`, {
+		method: 'POST',
+		headers: {
+			'content-type': 'application/json'
+		},
+		body: JSON.stringify(user)
+	})
+		.then(res => {
+			return normalizeResponseErrors(res);
+		})
+		.then(res => {
+			return res.json();
+		})
+		.then(res => console.log(res))
+		.catch(err => {
+			const {reason, message, location} = err;
+			if (reason === 'ValidationError') {
+				return Promise.reject(
+					new SubmissionError({
+						[location]: message
+					})
+				);
+			}
 		});
 };

@@ -16,13 +16,13 @@ export function NavigationBar(props) {
 			<nav>
 				<ul>
 					<li className="link">
-						<Link className={'btn' + ((location.pathname === '/') ? ' active' : '')} role="button" onClick={() => props.dispatch(setStory({}))} to="/">home</Link>
+						<Link data-tooltip aria-haspopup="true" title="home" className={'btn' + ((location.pathname === '/') ? ' active' : '')} role="button" onClick={() => props.dispatch(setStory({}))} to="/">home</Link>
 					</li>
 					<li className="link">
-						<Link className={'btn' + ((location.pathname === '/about') ? ' active' : '')} role="button" onClick={() => props.dispatch(setStory({}))} to="/about">about</Link>
+						<Link data-tooltip aria-haspopup="true" title="about" className={'btn' + ((location.pathname === '/about') ? ' active' : '')} role="button" onClick={() => props.dispatch(setStory({}))} to="/about">about</Link>
 					</li>
 					<li className="link">
-						<Link to="/" className="btn" role="button" onClick={() => props.dispatch(clearAuth())}>logout</Link>
+						<Link data-tooltip aria-haspopup="true" title="logout" className="btn" role="button" onClick={() => props.dispatch(clearAuth())} to="/">logout</Link>
 					</li>
 				</ul>
 			</nav>
@@ -33,16 +33,16 @@ export function NavigationBar(props) {
 		<nav>
 			<ul>
 				<li className="link">
-					<Link className={'btn' + ((location.pathname === '/') ? ' active' : '')} onClick={() => props.dispatch(setStory({}))} to="/">home</Link>
+					<Link data-tooltip aria-haspopup="true" title="home" className={'btn' + ((location.pathname === '/') ? ' active' : '')} role="button" onClick={() => props.dispatch(setStory({}))} to="/">home</Link>
 				</li>
 				<li className="link">
-					<Link className={'btn' + ((location.pathname === '/about') ? ' active' : '')} onClick={() => props.dispatch(setStory({}))} to="/about">about</Link>
+					<Link data-tooltip aria-haspopup="true" title="about" className={'btn' + ((location.pathname === '/about') ? ' active' : '')} role="button" onClick={() => props.dispatch(setStory({}))} to="/about">about</Link>
 				</li>
 				<li className="link">
-					<Link className={'btn' + ((location.pathname === '/register') ? ' active' : '')} onClick={() => props.dispatch(setStory({}))} to="/register">sign-up</Link>
+					<Link data-tooltip aria-haspopup="true" title="register" className={'btn' + ((location.pathname === '/register') ? ' active' : '')} role="button" onClick={() => props.dispatch(setStory({}))} to="/register">sign-up</Link>
 				</li>
 				<li className="link">
-					<Link className='btn' onClick={() => props.dispatch(setStory({}))} to="/login">login</Link>
+					<Link data-tooltip aria-haspopup="true" title="login" className='btn' role="button" onClick={() => props.dispatch(setStory({}))} to="/login">login</Link>
 				</li>
 			</ul>
 		</nav>

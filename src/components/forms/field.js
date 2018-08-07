@@ -15,7 +15,7 @@ class Field extends React.Component {
 	}
 
 	toolTipClick() {
-
+		this.setState({tooltip: !this.state.tooltip});
 	}
 
 	render() {
@@ -24,15 +24,11 @@ class Field extends React.Component {
 
 		const Element = props.element || 'input';
 
-		const tooltip = props.tooltip
+		const tooltip = props.title
 			? (
-				<div className="tooltip-wrapper">
-					<button type="button" aria-label="tool tip" className="tooltip-button"><i className="fa fa-question-circle" aria-hidden="true"></i></button>
-					<span className="tooltip-message">{props.tooltip}</span>
-				</div>
+				<button type="button" aria-label="tool tip" className="tooltip-button"><i className="fa fa-question-circle" aria-hidden="true"></i></button>
 			)
 			:undefined;
-
 
 		return (
 			<div className="form-field">
@@ -49,10 +45,14 @@ class Field extends React.Component {
 						placeholder={props.placeholder}
 						type={props.type}
 						ref={input => this.input = input}
+						data-tooltip
+						aria-haspopup="true"
+						title={props.title}
 						onChange={() => this.changeHandler(this.input)}
 					/>
-					{tooltip}
 				</label>
+				{tooltip}
+				{tooltip?<span className="tooltip-message">{props.title}</span> : undefined}
 				<div className="form-error-container" aria-live="polite">
 					<span className="form-error-message"></span>
 				</div>

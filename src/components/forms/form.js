@@ -9,7 +9,8 @@ export class Form extends React.Component {
 	};
 
 	mapFieldsToState = (children) => {
-		return children.map(child => child.type.name ==='Field' ? {name: child.props.name, onChange: child.props.onChange} : undefined)
+		const filtered = children.filter(child => (child !== null && child !== undefined));
+		return filtered.map(child => child !== null && child.type.name ==='Field' ? {name: child.props.name, onChange: child.props.onChange} : undefined)
 			.filter(el => el !== undefined);
 	}
 

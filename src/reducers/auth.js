@@ -1,6 +1,7 @@
 import {
 	SET_AUTH_TOKEN,
 	CLEAR_AUTH,
+	CLEAR_AUTH_ERROR,
 	AUTH_REQUEST,
 	AUTH_SUCCESS,
 	AUTH_ERROR,
@@ -43,6 +44,11 @@ export default function reducer(state = initialState, action) {
 	} else if (action.type === SET_DIALOG) {
 		return Object.assign({}, state, {
 			dialog: action.dialog
+		});
+	} else if (action.type === CLEAR_AUTH_ERROR) {
+		return Object.assign({}, state, {
+			loading: false,
+			error: action.error
 		});
 	}
 	return state;

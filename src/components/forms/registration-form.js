@@ -5,9 +5,8 @@ import Form from './form';
 import Field from './field';
 
 import {login, registerUser} from '../../actions/auth';
-import {empty as isEmpty, matches, length, trimmed as isTrimmed} from '../../validators';
+import {empty as isEmpty, matches, trimmed as isTrimmed} from '../../validators';
 
-const isLongEnough = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
 /**
@@ -21,7 +20,7 @@ export class RegistrationForm extends React.Component {
 		error: null
 	};
 
-	validatePassword = () => {
+	isValid = () => {
 
 	}
 
@@ -35,7 +34,12 @@ export class RegistrationForm extends React.Component {
 	}
 
 	submit = () => {
-		console.log(this.state);
+		if(this.isValid) {
+			const {username, password,firstName, lastName} = this.state;
+			const newUser = {username,password,firstName, lastName};
+			console.log(newUser);
+			return this.props.dispatch(registerUser(newUser));
+		}
 	};
 
 	render() {
@@ -74,6 +78,7 @@ export class RegistrationForm extends React.Component {
 					maxLength={72}
 					pattern="^([a-zA-Z0-9].{8,72})$"
 					onChange={dataObj => this.changeHandler(dataObj)}
+					autoComplete="off"
 					title={'must contain at least 8 letters and/or numbers'}
 					required
 				/>
@@ -85,6 +90,7 @@ export class RegistrationForm extends React.Component {
 					maxLength={72}
 					pattern="^([a-zA-Z0-9]{8,72})$"
 					onChange={dataObj => this.changeHandler(dataObj)}
+					autoComplete="off"
 					title={'must contain at least 8 letters and/or numbers'}
 					required
 				/>
@@ -93,6 +99,7 @@ export class RegistrationForm extends React.Component {
 					type="password"
 					name="passwordConfirm"
 					onChange={dataObj => this.changeHandler(dataObj)}
+					autoComplete="off"
 					title={'must match password'}
 					required
 				/>

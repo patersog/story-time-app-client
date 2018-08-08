@@ -6,6 +6,7 @@ import {normalizeResponseErrors} from './utils';
 import {
 	SET_AUTH_TOKEN,
 	CLEAR_AUTH,
+	CLEAR_AUTH_ERROR,
 	AUTH_REQUEST,
 	AUTH_SUCCESS,
 	AUTH_ERROR,
@@ -32,6 +33,11 @@ export const authSuccess = currentUser => ({
 
 export const authError = error => ({
 	type: AUTH_ERROR,
+	error
+});
+
+export const clearAuthError = error => ({
+	type: CLEAR_AUTH_ERROR,
 	error
 });
 
@@ -67,14 +73,7 @@ export const login = (username, password) => dispatch => {
 			.then(res => res.json())
 			.then(({authToken}) => storeAuthInfo(authToken, dispatch))
 			.catch(err => {
-				const {code} = err;
-				const message = code === 401 ? 'Incorrect username or password' : 'Unable to login, please try again';
-				dispatch(authError(err));
-				return Promise.reject(
-					new SubmissionError({
-						_error: message
-					})
-				);
+				dispatch(authError(err.message));
 			})
 	);
 };

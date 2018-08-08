@@ -5,17 +5,9 @@ import './styles/form.css';
 
 class Field extends React.Component {
 
-	state = {
-		tooltip: false
-	};
-
 	changeHandler(input) {
 		const {name,value} = input;
 		this.props.onChange({name: name, value: value});
-	}
-
-	toolTipClick() {
-		this.setState({tooltip: !this.state.tooltip});
 	}
 
 	render() {
@@ -53,8 +45,8 @@ class Field extends React.Component {
 				</label>
 				{tooltip}
 				{tooltip?<span className="tooltip-message">{props.title}</span> : undefined}
-				<div className="form-error-container" aria-live="polite">
-					<span className="form-error-message"></span>
+				<div className="field-error-container" aria-live="polite">
+					<span className="field-error-message"></span>
 				</div>
 				{props.children}
 			</div>

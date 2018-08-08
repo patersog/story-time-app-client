@@ -44,6 +44,7 @@ h3 {
 	padding: .33em;
 	text-decoration: none;
 	text-transform: uppercase;
+	background: transparent;
 }
 
 .btn:focus,
@@ -55,6 +56,10 @@ h3 {
 .btn.active {
 	background-color: #5CDB95;
 	color: #2E2E2E;
+}
+
+button {
+	border: 0;
 }
 
 /* 

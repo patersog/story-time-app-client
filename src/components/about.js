@@ -13,19 +13,19 @@ export function About() {
 				<br/>
 				<br/>
 				<p>
-					As a visitor of our site, we want to provide the best possible user experience for you. That being said,
-					there are a couple of <strong>rules to abide by when engaging with the community</strong>.
+					As a visitor of our site we want to provide the best possible user experience for you. That being said,
+					there are a couple of <strong>rules we strongly recommend</strong> you to abide by when engaging with the community.
 				</p>
 				<br/>
 				<br/>
 				<ul className="about-list">
 					<li>1. Be <strong>respectful</strong></li>
-					<li>2. Be willing to give and recieve constructive feedback</li>
-					<li>3. Do not copy and or claim any original works as your own</li>
+					<li>2. Be willing to <strong>give and recieve constructive feedback</strong></li>
+					<li>3. Be original <strong>Do not copy</strong> and/or claim anyother original work as your own</li>
 				</ul>
 				<br/>
 				<br/>
-				<p>We thank you for using the site, and we wish you the best!</p>
+				<p>Thank you for visiting, we wish you the best!</p>
 			</div>
 		</section>
 	);

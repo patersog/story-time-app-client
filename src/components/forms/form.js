@@ -30,7 +30,7 @@ export class Form extends React.Component {
 			for (let i = 0; i < formLength; i++) {
 				const elem = formEl[i];
 				if (elem.nodeName.toLowerCase() !== 'button' && elem.nodeName.toLowerCase() !== 'fieldset' ) {
-					const errorMessage = elem.parentNode.parentNode.querySelector('.form-error-message');
+					const errorMessage = elem.parentNode.parentNode.querySelector('.field-error-message');
 					if (!elem.validity.valid) {
 						errorMessage.textContent = elem.validationMessage;
 					} else {
@@ -44,7 +44,7 @@ export class Form extends React.Component {
 		for (let i = 0; i < formLength; i++) {
 			const elem = formEl[i];
 			if (elem.nodeName.toLowerCase() !== 'button' && elem.nodeName.toLowerCase() !== 'fieldset' ) {
-				const errorMessage = elem.parentNode.parentNode.querySelector('.form-error-message');
+				const errorMessage = elem.parentNode.parentNode.querySelector('.field-error-message');
 				errorMessage.textContent = '';
 			}
 		}

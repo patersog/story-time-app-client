@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Field from './field';
 import Form from './form';
@@ -22,16 +23,17 @@ export class LoginForm extends React.Component {
 	}
 
 	submit = () => {
-		console.log(this.state);
+		const {username, password} = this.state;
+		return this.props.dispatch(login(username, password));
 	}
 
 	render() {
 
 		let error = null;
-		if(this.state.error) {
+		if(this.props.loginError) {
 			error = (
-				<div className="form-error" aria-live="polite">
-					{this.state.error}
+				<div className="form-error-container" aria-live="polite">
+					<span className="error-message">{this.props.loginError}</span>
 				</div>
 			);
 		}
@@ -48,6 +50,7 @@ export class LoginForm extends React.Component {
 					minLength={10}
 					maxLength={72}
 					pattern="^([a-zA-Z0-9].{8,72})$"
+					autoComplete="off"
 					onChange={dataObj => this.changeHandler(dataObj)}
 					title={'must contain at least 8 letters and/or numbers'}
 					required
@@ -59,11 +62,11 @@ export class LoginForm extends React.Component {
 					minLength={8}
 					maxLength={72}
 					pattern="^([a-zA-Z0-9].{8,72})$"
+					autoComplete="off"
 					onChange={dataObj => this.changeHandler(dataObj)}
 					title={'must contain at least 8 letters and/or numbers'}
 					required
 				/>
-				{error}
 				<div className="login-button-holder">
 					<button
 						data-tooltip
@@ -75,6 +78,7 @@ export class LoginForm extends React.Component {
 					log in
 					</button>
 				</div>
+				{error}
 			</Form>
 		);
 	}
@@ -83,5 +87,10 @@ export class LoginForm extends React.Component {
 const mapStateToProps = state => ({
 	loginError: state.auth.error
 });
+
+LoginForm.propTypes = {
+	dispatch: PropTypes.func,
+	loginError: PropTypes.string
+};
 
 export default connect(mapStateToProps)(LoginForm);

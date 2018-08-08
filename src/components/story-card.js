@@ -9,7 +9,7 @@ import './styles/story-card.css';
 
 export function StoryCard (props) {
 
-	const onClick = () => {
+	const onReadClick = () => {
 		props.dispatch(setStory(props.story));
 		props.history.push(`/${props.story.id}`);
 	};
@@ -20,17 +20,18 @@ export function StoryCard (props) {
 	const created = moment(created_at).format('ddd MMM Do, YYYY');
 
 	return(
-		<li className="story-card" onClick={() => onClick() }>
-			<div className="info">
-				<div className="title-author">
-					<h3 className="card-title">{title}</h3>
-					<h4 className="card-author">{username}</h4>
+		<li className="story-card">
+			<div className="card-container">
+				<div className="info">
+					<h3 className="title">{title}</h3>
+					<div className="description">
+						<h4 className="author">{username}</h4>
+						<h5 className="updated">{`written: ${updated}`}</h5>
+					</div>
 				</div>
-				<div className="date">
-					<h5 className="card-created">{`written: ${created}`}</h5>
-					<h5 className="card-updated">{`edited: ${updated}`}</h5>
-				</div>
-				<button aria-label={`read ${title}`} onClick={() => onClick()}><i className="fab fa-readme" role="presentation"></i></button>
+			</div>
+			<div className="readme-wrapper">
+				<button className="readme" title={`read "${title}"`} aria-label={`read ${title}`} onClick={() => onReadClick()}><i className="fab fa-readme" role="presentation"></i></button>
 			</div>
 		</li>
 	);

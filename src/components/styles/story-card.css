@@ -2,40 +2,64 @@
 	background-color: ivory;
 	border-radius: 3px;
 	display: block;
-	margin: 1.0em;
-	padding: 0.33em;
+	margin: 0.233em;
+	height: 100%;
+}
+
+.card-container, .readme-wrapper {
+	display: inline-block;
+}
+
+.card-container {
+	width: 80%;
+}
+
+.readme-wrapper {
+	width: 20%;
+	height: auto;
+	vertical-align: middle;
 }
 
 .info {
+	max-width: 200px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	margin: 0.5em;
 }
 
-.date > h5 {
-	margin: 0.3em;
+h3, .description > h4, h5 {
+	margin: 0;
 }
 
-.title-author {
-	display: flex;
+.description {
+	display: block;
 	flex-direction: column;
 }
 
-.title-author > h3 {
-	align-self: flex-start;
-	margin-top: 0.33em;
-	margin-bottom: 0.33em;
+.title {
+	font-size: 1.2em;
+	white-space: nowrap;
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
-.title-author > h4 {
-	align-self: flex-start;
-	margin-top: 0.33em;
-	margin-bottom: 0.33em;
+.author {
+	font-size: 0.8em;
 }
 
-.card-author {
-	
+.updated {
+	font-size: 0.7em;
+}
+
+/* .description > h4 {
+	margin: 0;
+	font-size: 0.8em;
+} */
+
+.readme {
+	background: transparent;
 }
 /*
 

@@ -1,7 +1,9 @@
  .story-card {
 	background-color: ivory;
 	border-radius: 3px;
-	display: block;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 	margin: 0.233em;
 	height: 100%;
 }
@@ -11,12 +13,12 @@
 }
 
 .card-container {
-	width: 80%;
+	width: 85%;
 }
 
 .readme-wrapper {
-	width: 20%;
-	height: auto;
+	display: flex;
+	width: 15%;
 	vertical-align: middle;
 }
 
@@ -34,7 +36,9 @@ h3, .description > h4, h5 {
 
 .description {
 	display: block;
+	color: #888;
 	flex-direction: column;
+	text-align: left;
 }
 
 .title {
@@ -43,6 +47,7 @@ h3, .description > h4, h5 {
 	max-width: 200px;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-align: left;
 }
 
 .author {
@@ -50,15 +55,13 @@ h3, .description > h4, h5 {
 }
 
 .updated {
-	font-size: 0.7em;
+	display: none;
 }
 
-/* .description > h4 {
-	margin: 0;
-	font-size: 0.8em;
-} */
-
 .readme {
+	display: block;
+	padding: 0;
+	margin: 0 auto;
 	background: transparent;
 }
 /*

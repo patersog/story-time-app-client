@@ -1,15 +1,15 @@
 .action-display {
-	display: flex;
-	flex-wrap: wrap;
 	margin: 0 auto;
+	padding-bottom: 0.483em;
 }
 
 .action-display-header {
 	margin-top: 0;
-	margin-bottom: 2.0em;
+	margin-bottom: 1.2em;
 	background-color:  #dbe3ce;
 	text-align: center;
 	width: 100%;
+	font-size: 1em;
 }
 
 .action-display-panel {
@@ -19,8 +19,8 @@
 
 .action-display-main {
 	width: 95%;
-	margin: 0 auto 1.233em;
-	height: 73vh;
+	margin: 0 auto;
+	height: 66vh;
 	overflow-y: scroll;
 	background-color: #a9ada4; 
 	border-radius: 3px;
@@ -30,3 +30,38 @@
 	/* This is the magic bit */
 	display: none;
 }
+
+@media screen and (min-width: 360px) {
+	.action-display-main {
+		height: 62vh;
+	}
+}
+
+@media screen and (min-width: 360px) and (min-height: 640px) {
+	.action-display-main {
+		height: 67vh;
+	}
+}
+
+@media screen and (min-width: 360px) and (max-height: 640px) {
+	.action-display-main {
+		height: 66vh;
+	}
+}
+
+@media screen and (min-width: 360px) and (min-height: 730px) {
+	.action-display-main {
+		height: 70vh;
+	}
+}
+
+@media screen and (min-width: 360px) and (min-height: 800px) {
+	.action-display-main {
+		height: 73vh;
+	}
+}
+
+
+
+/* 1.233em;*/
+/*73vh*/

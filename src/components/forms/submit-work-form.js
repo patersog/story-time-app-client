@@ -73,7 +73,7 @@ export function SubmitWorkForm(props){
 					aria-haspopup="true"
 				/>
 				<div className="button-holder">
-					<button className="submit-btn" type="submit" disabled={props.pristine || props.submitting}>Submit Story</button>
+					<button title={'submit work'} className="submit-btn" type="submit" disabled={props.pristine || props.submitting}>Submit Story</button>
 				</div>
 			</fieldset>
 		</form>

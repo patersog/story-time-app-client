@@ -1,7 +1,7 @@
 .sec {
 	text-align: center;
 	margin:  0 auto;
-	padding: 1.233em;
+	padding: 0.483em;
 	background-color: #dbe3ce;
 	border-radius: 3px;
 	border-top-left-radius: 0;
@@ -11,11 +11,40 @@
 .sec-container {
 	background-color: ivory;
 	border-radius: 3px;
-	height: 68vh;
+	height: 72.2vh;
+	overflow-y: scroll;
 }
 
-.sec-header {
-	margin-top:0;
-	padding-top: 0.83em;
-	text-transform: capitalize;
+/*1.233em largest*/
+/*0.483em smallest*/
+
+
+@media screen and (min-width: 360px) {
+	.sec-container {
+		height: 62vh;
+	}
+}
+
+@media screen and (min-width: 360px) and (min-height: 640px) {
+	.sec-container {
+		height: 72.33vh;
+	}
+}
+
+@media screen and (min-width: 360px) and (max-height: 640px) {
+	.sec-container {
+		height: 71.66vh;
+	}
+}
+
+@media screen and (min-width: 360px) and (min-height: 730px) {
+	.sec-container {
+		height: 74.76vh;
+	}
+}
+
+@media screen and (min-width: 360px) and (min-height: 800px) {
+	.sec-container {
+		height: 77.43vh;
+	}
 }

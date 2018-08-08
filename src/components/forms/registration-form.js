@@ -105,7 +105,7 @@ export class RegistrationForm extends React.Component {
 				/>
 				{error}
 				<div className="button-holder">
-					<button type="submit" className="btn">
+					<button type="submit" className="btn" title={'register button'}>
 						Register
 					</button>
 				</div>

@@ -31,7 +31,7 @@ export class StoryPage extends Component {
 		}
 
 		const edit = this.props.isOwner
-			? <div className="button-holder"><button className="edit-btn" onClick={() => this.onClickEdit()}>Edit</button></div>
+			? <div className="button-holder"><button title="edit" className="edit-btn" onClick={() => this.onClickEdit()}>Edit</button></div>
 			: undefined;
 
 		return(

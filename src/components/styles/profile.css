@@ -3,3 +3,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 }
+
+.profile-name{
+	margin: 0.483em;
+}

@@ -25,7 +25,7 @@ export function StoryCard (props) {
 				<div className="info">
 					<h3 className="title">{title}</h3>
 					<div className="description">
-						<h4 className="author">{username}</h4>
+						<h4 className="author">{`by: ${username}`}</h4>
 						<h5 className="updated">{`written: ${updated}`}</h5>
 					</div>
 				</div>

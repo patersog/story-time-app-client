@@ -1,3 +1,7 @@
+
+/*1.233em largest*/
+/*0.483em smallest*/
+
 .form-field {
 	border: 0;
 	padding: 0;
@@ -120,3 +124,8 @@ input[type=password] {
 .tooltip-button:hover ~ .tooltip-message {
 	opacity: 1;
 }
+
+
+
+/*1.233em largest*/
+/*0.483em smallest*/

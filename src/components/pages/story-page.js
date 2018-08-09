@@ -35,8 +35,8 @@ export class StoryPage extends Component {
 			: undefined;
 
 		return(
-			<article className="story">
-				<div className="story-container">
+			<section className="story sec">
+				<article className="story-container">
 					<div className="info-container">
 						<div className="story-title-author">
 							<h3 className="story-title">{this.props.story.title}</h3>
@@ -47,8 +47,8 @@ export class StoryPage extends Component {
 					<div className="story-text">
 						<p>{this.props.story.text}</p>
 					</div>
-				</div>
-			</article>
+				</article>
+			</section>
 		);
 	}
 }

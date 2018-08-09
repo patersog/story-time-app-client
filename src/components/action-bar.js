@@ -8,7 +8,7 @@ import './styles/action-bar.css';
 export function ActionBar(props){
 
 	const renderSubmitButton = () => {
-		return <Link to="/submit">Submit A Work!</Link>;
+		return <Link className="go-submit" role="button" to="/submit">Submit A Work</Link>;
 	};
 
 	const submitButton = props.isLoggedIn ? renderSubmitButton() : undefined;

@@ -1,9 +1,15 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Page from './page';
 import SubmitWorkForm from '../forms/submit-work-form';
 
-export function SubmitWorkPage() {
+export function SubmitWorkPage(props) {
+
+	if(!props.isLoggedIn) {
+		return <Redirect to="/"/>;
+	}
 
 	return (
 		<Page>
@@ -15,5 +21,9 @@ export function SubmitWorkPage() {
 		</Page>
 	);
 }
+
+SubmitWorkPage.propTypes = {
+	isLoggedIn: PropTypes.bool
+};
 
 export default SubmitWorkPage;

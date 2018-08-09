@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {Redirect} from 'react-router-dom';
 
 import Field from './field';
 import Form from './form';
@@ -38,7 +39,12 @@ export class LoginForm extends React.Component {
 			);
 		}
 
+		if(this.props.isLoggedIn) {
+			return <Redirect to='/' />;
+		}
+
 		return(
+
 			<Form
 				onSubmit={this.submit}
 				{...this.props}
@@ -47,9 +53,9 @@ export class LoginForm extends React.Component {
 					label="username"
 					name="username"
 					type="text"
-					minLength={10}
+					minLength={1}
 					maxLength={72}
-					pattern="^([a-zA-Z0-9].{8,72})$"
+					pattern="^[a-zA-Z0-9]{1,72}$"
 					autoComplete="off"
 					onChange={dataObj => this.changeHandler(dataObj)}
 					title={'must contain at least 8 letters and/or numbers'}
@@ -61,7 +67,7 @@ export class LoginForm extends React.Component {
 					type="password"
 					minLength={8}
 					maxLength={72}
-					pattern="^([a-zA-Z0-9].{8,72})$"
+					pattern="^[a-zA-Z0-9]{8,72}$"
 					autoComplete="off"
 					onChange={dataObj => this.changeHandler(dataObj)}
 					title={'must contain at least 8 letters and/or numbers'}
@@ -71,7 +77,7 @@ export class LoginForm extends React.Component {
 					<button
 						data-tooltip
 						aria-haspopup="true"
-						className="btn login"
+						className="btn form"
 						type="submit"
 						title={'login'}
 					>
@@ -85,10 +91,11 @@ export class LoginForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	loginError: state.auth.error
+	loginError: state.auth.error,
 });
 
 LoginForm.propTypes = {
+	isLoggedIn: PropTypes.bool,
 	dispatch: PropTypes.func,
 	loginError: PropTypes.string
 };

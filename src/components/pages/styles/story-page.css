@@ -46,6 +46,9 @@
 	background-color:  ivory;
 	border-radius: 3px;
 	height: 60vh;
+	max-width: 60em;
+	overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 

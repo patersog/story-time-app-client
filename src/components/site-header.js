@@ -16,10 +16,10 @@ export function SiteHeader(props){
 				<div className="right-header">
 					{/* <Profile currentUser={props.currentUser} dispatch={props.dispatch}/> */}
 					<div className="right-header-left">
-						<Profile currentUser={props.currentUser} dispatch={props.dispatch}/>
+						<Profile username={props.username} dispatch={props.dispatch}/>
 					</div>
 					<div className="right-header-right">
-						<NavigationBar location={props.location} currentUser={props.currentUser} dispatch={props.dispatch}/>
+						<NavigationBar location={props.location} username={props.username} dispatch={props.dispatch}/>
 					</div>
 				</div>
 			</div>
@@ -28,7 +28,7 @@ export function SiteHeader(props){
 }
 
 SiteHeader.propTypes = {
-	currentUser: PropTypes.string,
+	username: PropTypes.string,
 	location: PropTypes.object,
 	dispatch: PropTypes.func
 };

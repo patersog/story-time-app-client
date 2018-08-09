@@ -10,9 +10,13 @@ import './styles/app.css';
 
 export function App(props) {
 	const {location, dispatch, currentUser, isLoggedIn} = props;
+	let username = undefined;
+	if(currentUser) {
+		username = currentUser.username;
+	}
 	return (
 		<div className="app">
-			<SiteHeader location={location} currentUser={currentUser} dispatch={dispatch}/>
+			<SiteHeader location={location} username={username} dispatch={dispatch}/>
 			<main className="main">
 				<Routes isLoggedIn={isLoggedIn}/>
 			</main>
@@ -28,7 +32,7 @@ const mapStateToProps = state => ({
 App.propTypes = {
 	location: PropTypes.object,
 	isLoggedIn: PropTypes.bool,
-	currentUser: PropTypes.string,
+	currentUser: PropTypes.object,
 	dispatch: PropTypes.func
 };
 

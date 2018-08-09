@@ -1,14 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {reduxForm,Field} from 'redux-form';
+import {reduxForm,Field,focus} from 'redux-form';
 import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import Input from './redux-forms-input';
 import {submitNewStory, submitEditedStory, setStory, editStory} from '../../actions/stories';
 import {required, empty} from '../../validators';
 
-export function SubmitWorkForm(props){
+import './styles/submit-work-form.css';
 
+export function SubmitWorkForm(props){
 	const onSubmit= values => {
 		//genres not implemented on the back end yet.
 		const {title, text} = values;
@@ -39,42 +41,54 @@ export function SubmitWorkForm(props){
 				});
 		}
 	};
+
+	let error;
+	if (props.error) {
+		error = (
+			<div className="form-field-error" aria-live="polite">
+				{props.error}
+			</div>
+		);
+	}
 	return(
 		<form
 			className="submit-work-form"
 			onSubmit={props.handleSubmit(values => onSubmit(values))}>
-			<fieldset className="story-fldst">
-				<legend>Submit Story</legend>
-				<label htmlFor="title" className="submit-form-label">title</label >
+			<fieldset className="s-fieldset">
+				<legend className="s-legend">Write Your Story</legend>
 				<Field
-					className="submit-form-input"
-					component="input"
+					label="story title"
+					className="s-title"
+					component={Input}
 					type="text"
-					id="title"
-					placeholder="Title Goes Here!"
+					id="storyTitle"
+					placeholder="Your Title"
 					name="title"
 					validate={[required, empty]}
 				/>
-				<label htmlFor="storytext" className="submit-form-label">story</label>
-				<Field
-					placeholder='Story Goes Here!'
-					component="textarea"
-					validate={[required, empty]}
-					name="text"
-					id="text"
-					autoComplete="off"
-					autoCorrect="off"
-					autoCapitalize="off"
-					spellCheck="true"
-					rows="20"
-					cols="10"
-					role="textbox"
-					aria-autocomplete="list"
-					aria-haspopup="true"
-				/>
+				<label htmlFor="text" title={'story textarea'} className="submit-form-label">
+					<Field
+						className="s-text"
+						placeholder="Your Story..."
+						component="textarea"
+						validate={[required, empty]}
+						name="text"
+						id="storyText"
+						autoComplete="off"
+						autoCorrect="off"
+						autoCapitalize="off"
+						spellCheck="true"
+						rows="20"
+						cols="50"
+						role="textbox"
+						aria-autocomplete="list"
+						aria-haspopup="true"
+					/>
+				</label>
 				<div className="button-holder">
-					<button title={'submit work'} className="submit-btn" type="submit" disabled={props.pristine || props.submitting}>Submit Story</button>
+					<button title={'submit work'} className="submit btn" type="submit" disabled={props.pristine || props.submitting}>Submit Story</button>
 				</div>
+				{error}
 			</fieldset>
 		</form>
 	);
@@ -82,11 +96,15 @@ export function SubmitWorkForm(props){
 
 SubmitWorkForm.propTypes = {
 	editing: PropTypes.bool,
-	dispatch: PropTypes.func
+	dispatch: PropTypes.func,
+	handleSubmit: PropTypes.func
 };
 
 let submitWorkForm = reduxForm({
-	form:'submitwork'
+	form:'submitwork',
+	onSubmitFail: (errors, dispatch) => {
+		dispatch(focus('storyTitle', 'storyText'));
+	},
 })(SubmitWorkForm);
 
 submitWorkForm = connect(state => ({

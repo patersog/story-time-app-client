@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Form from './form';
 import Field from './field';
@@ -37,18 +38,18 @@ export class RegistrationForm extends React.Component {
 		if(this.isValid) {
 			const {username, password,firstName, lastName} = this.state;
 			const newUser = {username,password,firstName, lastName};
-			console.log(newUser);
-			return this.props.dispatch(registerUser(newUser));
+			return this.props.dispatch(registerUser(newUser))
+				.then(() => this.props.dispatch(login(username, password)));
 		}
 	};
 
 	render() {
 
 		let error = undefined;
-		if(this.state.error) {
+		if(this.props.registrationError) {
 			error = (
-				<div className="form-error" aria-live="polite">
-					{this.state.error}
+				<div className="form-error-container" aria-live="polite">
+					<span className="error-message">{this.props.registrationError}</span>
 				</div>
 			);
 		}
@@ -103,12 +104,12 @@ export class RegistrationForm extends React.Component {
 					title={'must match password'}
 					required
 				/>
-				{error}
 				<div className="button-holder">
-					<button type="submit" className="btn" title={'register button'}>
+					<button type="submit" className="btn form" title={'register button'}>
 						Register
 					</button>
 				</div>
+				{error}
 			</Form>
 		);
 	}
@@ -117,5 +118,10 @@ export class RegistrationForm extends React.Component {
 const mapStateToProps = state => ({
 	registrationError: state.auth.error
 });
+
+RegistrationForm.propTypes = {
+	dispatch: PropTypes.func,
+	registrationError: PropTypes.string
+};
 
 export default connect(mapStateToProps)(RegistrationForm);

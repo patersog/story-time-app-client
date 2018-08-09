@@ -90,9 +90,9 @@ export const fetchStory = id => dispatch => {
 };
 
 // Async Action to submit one story
-export const submitNewStory = story => (dispatch, getState) => {
+export const submitNewStory = story => (dispatch) => {
 	dispatch(fetchStoryRequest());
-	const authToken = getState().auth.authToken;
+	const authToken = localStorage.getItem('authToken');
 	return ( fetch(`${API_BASE_URL}/stories`,{
 		method: 'POST',
 		body: JSON.stringify(story),
@@ -119,9 +119,9 @@ export const submitNewStory = story => (dispatch, getState) => {
 };
 
 // Async Action to edit a single story
-export const submitEditedStory = story => (dispatch, getState) => {
+export const submitEditedStory = story => (dispatch) => {
 	dispatch(fetchStoryRequest());
-	const authToken = getState().auth.authToken;
+	const authToken = localStorage.getItem('authToken');
 	return ( fetch(`${API_BASE_URL}/stories/${story.id}`,{
 		method: 'PUT',
 		body: JSON.stringify(story),

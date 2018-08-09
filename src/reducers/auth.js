@@ -1,7 +1,5 @@
 import {
-	SET_AUTH_TOKEN,
 	CLEAR_AUTH,
-	CLEAR_AUTH_ERROR,
 	AUTH_REQUEST,
 	AUTH_SUCCESS,
 	AUTH_ERROR,
@@ -9,7 +7,6 @@ import {
 } from '../actions/action-types';
 
 const initialState = {
-	authToken: null, // authToken !== null does not mean it has been validated
 	currentUser: null,
 	loading: false,
 	error: null,
@@ -17,39 +14,29 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-	if (action.type === SET_AUTH_TOKEN) {
-		return Object.assign({}, state, {
-			authToken: action.authToken
-		});
-	} else if (action.type === CLEAR_AUTH) {
-		return Object.assign({}, state, {
-			authToken: null,
+	if (action.type === CLEAR_AUTH) {
+		return { ...state,
 			currentUser: null
-		});
+		};
 	} else if (action.type === AUTH_REQUEST) {
-		return Object.assign({}, state, {
+		return { ...state,
 			loading: true,
 			error: null
-		});
+		};
 	} else if (action.type === AUTH_SUCCESS) {
-		return Object.assign({}, state, {
+		return { ...state,
 			loading: false,
 			currentUser: action.currentUser
-		});
+		};
 	} else if (action.type === AUTH_ERROR) {
-		return Object.assign({}, state, {
+		return { ...state,
 			loading: false,
 			error: action.error
-		});
+		};
 	} else if (action.type === SET_DIALOG) {
-		return Object.assign({}, state, {
+		return { ...state,
 			dialog: action.dialog
-		});
-	} else if (action.type === CLEAR_AUTH_ERROR) {
-		return Object.assign({}, state, {
-			loading: false,
-			error: action.error
-		});
+		};
 	}
 	return state;
 }

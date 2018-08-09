@@ -4,6 +4,14 @@
 	justify-content: space-between;
 }
 
-.profile-name{
+.p-text {
+	border-radius: 3px;
+	background-color: #dbe3ce;
+	padding: 0 0.5em;
+}
+
+.p-name{
 	margin: 0.483em;
+	text-transform: none;
+	color: #343D93;
 }

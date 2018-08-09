@@ -1,22 +1,14 @@
 import jwtDecode from 'jwt-decode';
-import {SubmissionError} from 'redux-form';
 
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 import {
-	SET_AUTH_TOKEN,
 	CLEAR_AUTH,
-	CLEAR_AUTH_ERROR,
 	AUTH_REQUEST,
 	AUTH_SUCCESS,
 	AUTH_ERROR,
 	SET_DIALOG
 } from './action-types';
-
-export const setAuthToken = authToken => ({
-	type: SET_AUTH_TOKEN,
-	authToken
-});
 
 export const clearAuth = () => ({
 	type: CLEAR_AUTH
@@ -36,21 +28,16 @@ export const authError = error => ({
 	error
 });
 
-export const clearAuthError = error => ({
-	type: CLEAR_AUTH_ERROR,
-	error
-});
-
 export const setDialog = dialog => ({
 	type: SET_DIALOG,
 	dialog
 });
 
-// Stores the auth token in state and localStorage, and decodes and stores
-// the user data stored in the token
-const storeAuthInfo = (authToken, dispatch) => {
+// Stores the auth token in localStorage, and decodes and stores
+export const storeAuthInfo = (authToken, dispatch) => {
 	const decodedToken = jwtDecode(authToken);
-	dispatch(setAuthToken(authToken));
+
+	localStorage.setItem('authToken', authToken);
 	dispatch(authSuccess(decodedToken.user));
 };
 
@@ -78,9 +65,9 @@ export const login = (username, password) => dispatch => {
 	);
 };
 
-export const refreshAuthToken = () => (dispatch, getState) => {
+export const refreshAuthToken = () => (dispatch) => {
 	dispatch(authRequest());
-	const authToken = getState().auth.authToken;
+	const authToken = localStorage.getItem('authToken');
 	return fetch(`${API_BASE_URL}/auth/refresh`, {
 		method: 'POST',
 		headers: {
@@ -108,21 +95,14 @@ export const registerUser = user => dispatch => {
 		},
 		body: JSON.stringify(user)
 	})
-		.then(res => {
-			return normalizeResponseErrors(res);
-		})
-		.then(res => {
-			return res.json();
-		})
-		.then(res => console.log(res))
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
 		.catch(err => {
-			const {reason, message, location} = err;
-			if (reason === 'ValidationError') {
-				return Promise.reject(
-					new SubmissionError({
-						[location]: message
-					})
-				);
-			}
+			dispatch(authError(err.message));
 		});
+};
+
+export const logout = () => dispatch => {
+	dispatch(clearAuth());
+	localStorage.removeItem('authToken');
 };

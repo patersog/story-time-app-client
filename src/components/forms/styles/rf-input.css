@@ -1,0 +1,27 @@
+.rf-form-error, .rf-form-warning {
+	position: absolute;
+	text-transform: none;
+	font-size: 1.0em;
+	left: 50%;
+	top: -1.75em;
+	transform: translateX(-50%);
+	white-space: nowrap;
+}
+
+.rf-form-error {
+	color:#C70000;
+}
+
+.rf-form-warning {
+	color:rgb(135, 172, 50);
+}
+
+.rf-form-input > input[type=text] {
+	position: relative;
+	margin: 0 auto 0.5em;
+	padding-right: 0;
+}
+
+.title-input {
+	text-align: center;
+}

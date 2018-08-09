@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import {clearAuth} from '../actions/auth';
+import {logout} from '../actions/auth';
 import {setStory} from '../actions/stories';
 
 import './styles/navigation-bar.css';
@@ -11,7 +11,7 @@ export function NavigationBar(props) {
 
 	const {location} = props;
 
-	if(props.currentUser) {
+	if(props.username) {
 		return (
 			<nav>
 				<ul>
@@ -22,7 +22,7 @@ export function NavigationBar(props) {
 						<Link data-tooltip aria-haspopup="true" title="about" className={'btn' + ((location.pathname === '/about') ? ' active' : '')} role="button" onClick={() => props.dispatch(setStory({}))} to="/about">about</Link>
 					</li>
 					<li className="link">
-						<Link data-tooltip aria-haspopup="true" title="logout" className="btn" role="button" onClick={() => props.dispatch(clearAuth())} to="/">logout</Link>
+						<Link data-tooltip aria-haspopup="true" title="logout" className="btn" role="button" onClick={() => props.dispatch(logout())} to="/">logout</Link>
 					</li>
 				</ul>
 			</nav>
@@ -50,7 +50,7 @@ export function NavigationBar(props) {
 }
 
 NavigationBar.propTypes = {
-	currentUser: PropTypes.string,
+	username: PropTypes.string,
 	location: PropTypes.object,
 	dispatch: PropTypes.func
 };

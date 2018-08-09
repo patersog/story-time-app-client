@@ -4,17 +4,19 @@ import './styles/error-display.css';
 
 export function ErrorDisplay() {
 	return(
-		<div className="error-display">
-			<h2 className="error-display-header">
+		<section className="error-display">
+			<div className="error-container">
+				<h2 className="error-header">
 				Oops! Something went wrong!
-			</h2>
-			<div className="error-display-main">
-				<p className="error-message"><span><strong>500 Internal Server Error</strong></span>
-					<br/>
+				</h2>
+				<div className="error-main">
+					<p><span><strong>500 Internal Server Error</strong></span>
+						<br/>
 					Please try loading the page again.
-				</p>
+					</p>
+				</div>
 			</div>
-		</div>
+		</section>
 	);
 }
 

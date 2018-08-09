@@ -15,6 +15,10 @@
 	overflow-y: scroll;
 }
 
+.sec-container::-webkit-scrollbar { 
+	display: none;
+}
+
 /*1.233em largest*/
 /*0.483em smallest*/
 

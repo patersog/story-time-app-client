@@ -146,3 +146,33 @@ export const submitEditedStory = story => (dispatch) => {
 		})
 	);
 };
+
+
+// Async Action to delete a single story
+export const deleteStory = story => (dispatch) => {
+	console.log(story);
+	dispatch(fetchStoryRequest());
+	const authToken = localStorage.getItem('authToken');
+	return ( fetch(`${API_BASE_URL}/stories/${story.id}`,{
+		method: 'DELETE',
+		body: JSON.stringify(story),
+		headers: {
+			'Content-Type':'application/json',
+			Authorization: `Bearer ${authToken}`
+		},
+		mode:'cors'
+	})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.catch(err => {
+			const {code} = err;
+			const message = code === 401 ? 'Unauthorized, please login to submit this story' : 'Unable to Submit, please try again';
+			dispatch(fetchStoryError(err));
+			return Promise.reject(
+				new SubmissionError({
+					_error: message
+				})
+			);
+		})
+	);
+};

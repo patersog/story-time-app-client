@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import {fetchStory, editStory} from '../../actions/stories';
+import {fetchStory, editStory, deleteStory, setStory} from '../../actions/stories';
 
 import './styles/story-page.css';
 
@@ -20,6 +20,12 @@ export class StoryPage extends Component {
 		this.props.history.push('/submit');
 	}
 
+	onClickRemove() {
+		this.props.dispatch(deleteStory(this.props.story))
+			.then(() => this.props.dispatch(setStory({})))
+			.then(() => this.props.history.push('/'));
+	}
+
 	render() {
 
 		if(this.props.isLoading) {
@@ -31,21 +37,34 @@ export class StoryPage extends Component {
 		}
 
 		const edit = this.props.isOwner
-			? <div className="button-holder"><button title="edit" className="edit-btn" onClick={() => this.onClickEdit()}>Edit</button></div>
+			? <button title="edit" className="edit btn form" onClick={() => this.onClickEdit()}>edit</button>
+			: undefined;
+
+		const remove = this.props.isOwner
+			? <button title="remove" className="remove btn form" onClick={() => this.onClickRemove()}>delete</button>
 			: undefined;
 
 		return(
 			<section className="story sec">
-				<article className="story-container">
+				<article className="sec-container">
 					<div className="info-container">
 						<div className="story-title-author">
 							<h3 className="story-title">{this.props.story.title}</h3>
 							<h4 className="story-author">{`By: ${this.props.story.username}`}</h4>
-							{edit}
+							<div className="abs-button-holder">
+								{edit}
+								{remove}
+							</div>
 						</div>
 					</div>
-					<div className="story-text">
-						<p>{this.props.story.text}</p>
+					<div className="story-container">
+						<div className="inner">
+							<div className="abs-scroll">
+								<div className="story-text">
+									<p>{this.props.story.text}</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</article>
 			</section>

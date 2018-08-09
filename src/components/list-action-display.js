@@ -21,7 +21,9 @@ export function ListActionDisplay(props){
 			</h2>
 			<ActionBar/>
 			<div className="action-display-main">
-				<StoryList dispatch={props.dispatch}/>
+				<div className="inner">
+					<StoryList dispatch={props.dispatch}/>
+				</div>
 			</div>
 		</section>
 	);

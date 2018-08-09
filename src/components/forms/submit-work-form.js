@@ -78,15 +78,13 @@ export function SubmitWorkForm(props){
 						autoCorrect="off"
 						autoCapitalize="off"
 						spellCheck="true"
-						rows="20"
-						cols="50"
 						role="textbox"
 						aria-autocomplete="list"
 						aria-haspopup="true"
 					/>
 				</label>
 				<div className="button-holder">
-					<button title={'submit work'} className="submit btn" type="submit" disabled={props.pristine || props.submitting}>Submit Story</button>
+					<button title={'submit work'} className="btn form" type="submit" disabled={props.pristine || props.submitting}>Submit Story</button>
 				</div>
 				{error}
 			</fieldset>

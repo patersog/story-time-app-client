@@ -24,7 +24,7 @@ export class StoryList extends Component {
 		});
 
 		return (
-			<ul className="story-list">
+			<ul className="story-list abs-scroll">
 				{stories}
 			</ul>
 		);

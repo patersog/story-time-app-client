@@ -23,7 +23,7 @@
 }
 
 .info {
-	max-width: 200px;
+	max-width: 250px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -44,7 +44,7 @@ h3, .description > h4, h5 {
 .title {
 	font-size: 1.2em;
 	white-space: nowrap;
-	max-width: 200px;
+	max-width: 250px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	text-align: left;
@@ -99,18 +99,57 @@ h3, .description > h4, h5 {
 }
 
  */
-
-
- @media screen and (min-width: 600px) {
+@media screen and(min-width: 375px) {
 	.info {
-		flex-direction: row
+		max-width: 300px;
 	}
+	.title {
+		max-width: 300px;
+	}
+}
 
-	.date {
-		justify-content: flex-end;
+@media screen and(min-width: 425px) {
+	.info {
+		max-width: 325px;
 	}
+	.title {
+		max-width: 325px;
+	}
+}
 
-	.date > h5 {
-		
-	}
+@media screen and (min-width: 500px) {
+
+}
+
+@media screen and (min-width: 768px) {
+	
+}
+
+
+@media screen and (min-width: 960px) {
+	
+}
+
+@media screen and (min-width: 960px) {
+	
+}
+
+@media screen and (min-width: 1024px) {
+	
+}
+
+@media screen and (min-width: 1280px) {
+	
+}
+
+@media screen and (min-width: 1440px) {
+	
+}
+
+@media screen and (min-width: 1600px) {
+	
+}
+
+@media screen and (min-width: 1920px) {
+	
 }

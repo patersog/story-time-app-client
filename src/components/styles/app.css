@@ -1,5 +1,8 @@
 .app {
-	padding: 0;
+	display: flex;
+	text-align: center;
+	width: 100%;
+	flex-direction: column;
 }
 
 .main {
@@ -7,4 +10,5 @@
 	border-radius: 3px;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
+	height: 100%;
 }

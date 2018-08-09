@@ -7,7 +7,6 @@ import RegistrationForm from '../forms/registration-form';
 
 export function RegistrationPage(props) {
 
-
 	if(props.isLoggedIn) {
 		return <Redirect to="/"/>;
 	}
@@ -16,7 +15,11 @@ export function RegistrationPage(props) {
 		<Page>
 			<section className="registration sec">
 				<div className="sec-container">
-					<RegistrationForm title={'register'}/>
+					<div className="inner">
+						<div className="abs-scroll">
+							<RegistrationForm title={'register'}/>
+						</div>
+					</div>
 				</div>
 			</section>
 		</Page>

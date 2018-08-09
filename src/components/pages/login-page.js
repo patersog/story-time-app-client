@@ -15,7 +15,9 @@ export function LoginPage(props) {
 		<Page>
 			<section className="login sec">
 				<div className="sec-container">
-					<LoginForm title={'login'}/>
+					<div className="inner">
+						<LoginForm title={'login'}/>
+					</div>
 				</div>
 			</section>
 		</Page>

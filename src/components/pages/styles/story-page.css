@@ -1,27 +1,19 @@
-.story {
-	display: flex;
-	flex-direction: column;
-}
-
-.story-container {
-	border-radius: 3px;
-	padding: 1.233em;
-	padding-top:0;
-	display: flex;
-	flex-direction: column;
-	background-color:  #dbe3ce;
-}
 
 .info-container {
 	background-color:  ivory;
 	border-radius: 3px;
-	display: flex;
-	flex-direction: row;
+	height: 25%;
+}
+
+.story-container {
+	border-radius: 3px;
+	padding-top:0;
+	background-color:  ivory;
+	height: 75%;
 }
 
 .story-title-author {
-	display: flex;
-	flex-direction: column;
+	position: relative;
 	text-align: center;
 	margin: 0 auto;
 }
@@ -43,21 +35,22 @@
 }
 
 .story-text {
-	background-color:  ivory;
-	border-radius: 3px;
-	height: 60vh;
+	padding: 0 0.5em;
+	font-size: 1em;
 	max-width: 60em;
 	overflow-wrap: break-word;
-    word-wrap: break-word;
+	word-wrap: break-word;
 }
 
-
-.button-holder {
+.abs-button-holder {
+	max-width: 300px;
+	display: flex;
+	margin: 0 auto;
 	padding: 0.5em;
 	text-align: center;
+	justify-content: space-evenly;
 }
 
-.edit-btn {
-	text-transform: uppercase;
+.edit, .remove {
 	margin: 0.25em;
 }

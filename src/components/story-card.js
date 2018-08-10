@@ -16,22 +16,23 @@ export function StoryCard (props) {
 
 	const {title, username, updated_at, created_at} = props.story;
 
-	const updated = moment(updated_at).format('ddd MMM Do, YYYY');
-	const created = moment(created_at).format('ddd MMM Do, YYYY');
+	const date = updated_at === created_at
+		? <h5 className="date">{`${moment(created_at).format('ddd MMM Do, YYYY')}`}</h5>
+		: <h5 className="date">{`${moment(updated_at).format('ddd MMM Do, YYYY')}`}</h5>;
 
 	return(
 		<li className="story-card">
 			<div className="card-container">
-				<div className="info">
-					<h3 className="title">{title}</h3>
-					<div className="description">
-						<h4 className="author">{`by: ${username}`}</h4>
-						<h5 className="updated">{`written: ${updated}`}</h5>
+				<div className="card-info">
+					<h3 className="card-title">{title}</h3>
+					<div className="card-description">
+						<h4 className="author">{`${username}`}</h4>
+						{date}
 					</div>
 				</div>
 			</div>
 			<div className="readme-wrapper">
-				<button className="readme" title={`read "${title}"`} aria-label={`read ${title}`} onClick={() => onReadClick()}><i className="fab fa-readme" role="presentation"></i></button>
+				<button className="readme" title={`read "${title}"`} aria-label={`read ${title}`}><i onClick={() => onReadClick()} className="fab fa-readme" role="presentation"></i></button>
 			</div>
 		</li>
 	);

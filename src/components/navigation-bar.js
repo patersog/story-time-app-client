@@ -39,7 +39,7 @@ export function NavigationBar(props) {
 					<Link data-tooltip aria-haspopup="true" title="about" className={'btn' + ((location.pathname === '/about') ? ' active' : '')} role="button" onClick={() => props.dispatch(setStory({}))} to="/about">about</Link>
 				</li>
 				<li className="link">
-					<Link data-tooltip aria-haspopup="true" title="register" className={'btn' + ((location.pathname === '/register') ? ' active' : '')} role="button" onClick={() => props.dispatch(setStory({}))} to="/register">sign-up</Link>
+					<Link data-tooltip aria-haspopup="true" title="singup" className={'btn' + ((location.pathname === '/register') ? ' active' : '')} role="button" onClick={() => props.dispatch(setStory({}))} to="/register">sign-up</Link>
 				</li>
 				<li className="link">
 					<Link data-tooltip aria-haspopup="true" title="login" className='btn' role="button" onClick={() => props.dispatch(setStory({}))} to="/login">login</Link>

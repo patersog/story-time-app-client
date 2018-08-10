@@ -6,9 +6,6 @@ import Form from './form';
 import Field from './field';
 
 import {login, registerUser} from '../../actions/auth';
-import {empty as isEmpty, matches, trimmed as isTrimmed} from '../../validators';
-
-const matchesPassword = matches('password');
 
 /**
  * regex for username and password ^[a-zA-Z0-9].{8,72}$
@@ -21,8 +18,25 @@ export class RegistrationForm extends React.Component {
 		error: null
 	};
 
-	isValid = () => {
+	/*Check that passwords match */
 
+	/**
+	 * TODO:
+	 * Implement general field validation, this is ugly
+	 */
+
+	validate = () => {
+		const {password, passwordConfirm} = this.state;
+		if(password === passwordConfirm) {
+			this.setState((prevState) => {
+				return Object.assign(prevState, {error: null});
+			});
+			return true;
+		}
+		this.setState((prevState) => {
+			return Object.assign(prevState, {error: 'passwords must match'});
+		});
+		return false;
 	}
 
 	changeHandler = (dataObj) => {
@@ -35,7 +49,7 @@ export class RegistrationForm extends React.Component {
 	}
 
 	submit = () => {
-		if(this.isValid) {
+		if(this.validate()) {
 			const {username, password,firstName, lastName} = this.state;
 			const newUser = {username,password,firstName, lastName};
 			return this.props.dispatch(registerUser(newUser))
@@ -46,6 +60,7 @@ export class RegistrationForm extends React.Component {
 	render() {
 
 		let error = undefined;
+		let passwordError = undefined;
 		if(this.props.registrationError) {
 			error = (
 				<div className="form-error-container" aria-live="polite">
@@ -53,6 +68,16 @@ export class RegistrationForm extends React.Component {
 				</div>
 			);
 		}
+
+		if(this.state.error) {
+			passwordError = (
+				<div className="form-error-container" aria-live="polite">
+					<span className="password-error-message">{this.state.error}</span>
+				</div>
+			);
+		}
+
+		console.log(this.state.error ? this.state.error : 'nothing');
 
 		return (
 			<Form
@@ -75,12 +100,12 @@ export class RegistrationForm extends React.Component {
 					label="username"
 					name="username"
 					type="text"
-					minLength={10}
+					minLength={1}
 					maxLength={72}
 					pattern="^([a-zA-Z0-9].{8,72})$"
 					onChange={dataObj => this.changeHandler(dataObj)}
 					autoComplete="off"
-					title={'must contain at least 8 letters and/or numbers'}
+					title={'must be at least 1 character and/or numbers'}
 					required
 				/>
 				<Field
@@ -92,7 +117,7 @@ export class RegistrationForm extends React.Component {
 					pattern="^([a-zA-Z0-9]{8,72})$"
 					onChange={dataObj => this.changeHandler(dataObj)}
 					autoComplete="off"
-					title={'must contain at least 8 letters and/or numbers'}
+					title={'must be at least 8 characters and/or numbers'}
 					required
 				/>
 				<Field
@@ -104,6 +129,7 @@ export class RegistrationForm extends React.Component {
 					title={'must match password'}
 					required
 				/>
+				{passwordError}
 				<div className="button-holder">
 					<button type="submit" className="btn form" title={'register button'}>
 						Register

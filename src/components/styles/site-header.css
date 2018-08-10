@@ -20,6 +20,7 @@ header {
 }
 
 .left-header {
+	margin: 0.483em auto;
 	flex-direction: column;
 	order: 1;
 	font-size: 0.8em;

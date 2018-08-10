@@ -8,6 +8,8 @@ import Form from './form';
 
 import {login} from '../../actions/auth';
 
+import './styles/demo-account.css';
+
 export class LoginForm extends React.Component {
 
 	state = {
@@ -58,7 +60,7 @@ export class LoginForm extends React.Component {
 					pattern="^[a-zA-Z0-9]{1,72}$"
 					autoComplete="off"
 					onChange={dataObj => this.changeHandler(dataObj)}
-					title={'must contain at least 8 letters and/or numbers'}
+					title={'must contain at least 1 letters and/or numbers'}
 					required
 				/>
 				<Field
@@ -83,6 +85,14 @@ export class LoginForm extends React.Component {
 					>
 					log in
 					</button>
+				</div>
+				<div className="demo-account"><span className="demo-sp">demo account</span>
+					<div>
+						<span className="demo-sp">username:</span> username10
+					</div>
+					<div>
+						<span className="demo-sp">password:</span> password10
+					</div>
 				</div>
 				{error}
 			</Form>

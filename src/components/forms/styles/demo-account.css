@@ -1,0 +1,10 @@
+.demo-account {
+	background-color: lightgray;
+	border-radius: 3px;
+	margin: 0.5em auto;
+	font-size: 0.7em;
+}
+
+.demo-sp {
+	color: rgb(6, 73, 141);
+}

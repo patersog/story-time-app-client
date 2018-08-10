@@ -5,6 +5,10 @@ import './styles/form.css';
 
 class Field extends React.Component {
 
+	/**
+	 * TODO:
+	 * Implement general field validation by function array
+	 */
 	changeHandler(input) {
 		const {name,value} = input;
 		this.props.onChange({name: name, value: value});
@@ -63,7 +67,8 @@ Field.propTypes = {
 	placeholder: PropTypes.string,
 	type: PropTypes.string,
 	label: PropTypes.string,
-	id: PropTypes.string
+	id: PropTypes.string,
+	validate: PropTypes.arrayOf(PropTypes.func)
 };
 
 export default Field;

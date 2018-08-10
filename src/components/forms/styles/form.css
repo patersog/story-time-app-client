@@ -101,6 +101,17 @@ input[type=password] {
 	color: #C70000;
 }
 
+.password-error-message {
+	position: absolute;
+	text-transform: none;
+	font-size: 1.0em;
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
+	top:-1.5em;
+	color: #C70000;
+}
+
 .tooltip-button {
 	position: absolute;
 	padding: 0;
@@ -109,6 +120,7 @@ input[type=password] {
 	top: calc(50% - 0.6233em);
 	left: calc(50% + 3.8233em);
 	background: transparent;
+	cursor: pointer;
 }
 
 .tooltip-message {
@@ -128,7 +140,7 @@ input[type=password] {
 	opacity: 1;
 }
 
-.tooltip-button:hover ~ .tooltip-message {
+.tooltip-button:active ~ .tooltip-message {
 	opacity: 1;
 }
 

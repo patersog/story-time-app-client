@@ -150,7 +150,6 @@ export const submitEditedStory = story => (dispatch) => {
 
 // Async Action to delete a single story
 export const deleteStory = story => (dispatch) => {
-	console.log(story);
 	dispatch(fetchStoryRequest());
 	const authToken = localStorage.getItem('authToken');
 	return ( fetch(`${API_BASE_URL}/stories/${story.id}`,{

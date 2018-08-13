@@ -82,10 +82,10 @@ Entry point for the application is server.js, and configuration in config.js
 
 #### Other Tasks
 
-- [ ] Add CDCI (Travis)
+- [ ] Add CDCI
 
 ### Deployment
 
-[Storytime](https://loving-aryabhata-422d0b.netlify.com/)
+[Storytime](https://confused-texture.surge.sh/)
 
-Deployed with [netlify](https://www.netlify.com/) and [heroku](https://github.com/heroku);
+Deployed with [surge](https://surge.sh/) and [heroku](https://github.com/heroku);

@@ -3,7 +3,6 @@ import {
 	AUTH_REQUEST,
 	AUTH_SUCCESS,
 	AUTH_ERROR,
-	SET_DIALOG
 } from '../actions/action-types';
 
 const initialState = {
@@ -32,10 +31,6 @@ export default function reducer(state = initialState, action) {
 		return { ...state,
 			loading: false,
 			error: action.error
-		};
-	} else if (action.type === SET_DIALOG) {
-		return { ...state,
-			dialog: action.dialog
 		};
 	}
 	return state;

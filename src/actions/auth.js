@@ -7,7 +7,6 @@ import {
 	AUTH_REQUEST,
 	AUTH_SUCCESS,
 	AUTH_ERROR,
-	SET_DIALOG
 } from './action-types';
 
 export const clearAuth = () => ({
@@ -15,7 +14,7 @@ export const clearAuth = () => ({
 });
 
 export const authRequest = () => ({
-	type: AUTH_REQUEST
+	type: AUTH_REQUEST,
 });
 
 export const authSuccess = currentUser => ({
@@ -26,11 +25,6 @@ export const authSuccess = currentUser => ({
 export const authError = error => ({
 	type: AUTH_ERROR,
 	error
-});
-
-export const setDialog = dialog => ({
-	type: SET_DIALOG,
-	dialog
 });
 
 // Stores the auth token in localStorage, and decodes and stores
@@ -54,14 +48,10 @@ export const login = (username, password) => dispatch => {
 				password
 			})
 		})
-	// Reject any requests which don't return a 200 status, creating
-	// errors which follow a consistent format
 			.then(res => normalizeResponseErrors(res))
 			.then(res => res.json())
 			.then(({authToken}) => storeAuthInfo(authToken, dispatch))
-			.catch(err => {
-				dispatch(authError(err.message));
-			})
+			.catch(err => dispatch(authError(err.message)))
 	);
 };
 
@@ -88,10 +78,11 @@ export const refreshAuthToken = () => (dispatch) => {
 };
 
 export const registerUser = user => dispatch => {
+	dispatch(authRequest());
 	return fetch(`${API_BASE_URL}/users`, {
 		method: 'POST',
 		headers: {
-			'content-type': 'application/json'
+			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(user)
 	})

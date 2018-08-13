@@ -10,9 +10,7 @@ import {
 	STORY_ERROR,
 	SET_STORY,
 	EDIT_STORY,
-	ADD_STORY,
-	UPDATE_STORY,
-	SEARCH_STORY,} from './action-types';
+	ADD_STORY,} from './action-types';
 
 
 export const fetchStoryRequest = () => ({
@@ -48,19 +46,9 @@ export const editStory = editing => ({
 	editing
 });
 
-export const updateStory = story => ({
-	type: UPDATE_STORY,
-	story
-});
-
 export const addStory = story => ({
 	type: ADD_STORY,
 	story
-});
-
-export const searchStory = searchText => ({
-	type: SEARCH_STORY,
-	searchText
 });
 
 // Async Action to fetch all stories
@@ -98,7 +86,7 @@ export const submitNewStory = story => (dispatch) => {
 		body: JSON.stringify(story),
 		headers: {
 			'Content-Type':'application/json',
-			Authorization: `Bearer ${authToken}`
+			'Authorization': `Bearer ${authToken}`
 		},
 		mode:'cors'
 	})
@@ -165,7 +153,7 @@ export const deleteStory = story => (dispatch) => {
 		.then(res => res.json())
 		.catch(err => {
 			const {code} = err;
-			const message = code === 401 ? 'Unauthorized, please login to submit this story' : 'Unable to Submit, please try again';
+			const message = code === 401 ? 'Unauthorized' : 'Unable to Delete, please try again';
 			dispatch(fetchStoryError(err));
 			return Promise.reject(
 				new SubmissionError({

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {mount,shallow} from 'enzyme';
+import {shallow} from 'enzyme';
 
-import {App} from '../app';
-import SiteHeader from '../site-header';
-import Routes from '../routes';
+import {App} from '../components/app';
+import SiteHeader from '../components/site-header';
+import Routes from '../components/routes';
 
 
 describe('<App />', () => {
@@ -14,14 +14,13 @@ describe('<App />', () => {
 		shallow(<App />);
 	});
 
-	it( 'Should render the site header', () => {
+	it( 'Should contain the SiteHeader', () => {
 		const wrapper = shallow(<App />);
 		expect(wrapper.find(SiteHeader)).toHaveLength(1);
 	});
 
-	it( 'Should render the site header', () => {
+	it( 'Should contain the Routes', () => {
 		const wrapper = shallow(<App />);
 		expect(wrapper.find(Routes)).toHaveLength(1);
 	});
-
 });

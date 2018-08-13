@@ -6,9 +6,7 @@ import {
 	STORY_ERROR,
 	SET_STORY,
 	ADD_STORY,
-	UPDATE_STORY,
 	EDIT_STORY,
-	SEARCH_STORY,
 } from '../actions/action-types';
 
 const initialState = {
@@ -16,10 +14,7 @@ const initialState = {
 	story: {},
 	loading: false,
 	error: null,
-	dialog: false,
 	editing: false,
-	//searchText: '',
-	//filters:{},
 };
 
 export default function reducer (state=initialState, action) {
@@ -76,30 +71,10 @@ export default function reducer (state=initialState, action) {
 		};
 	}
 
-	if(action.type === UPDATE_STORY){
-		return {
-			...state,
-			stories: state.stories.map(story => {
-				if(story.id === action.story.id) {
-					return action.story;
-				}
-				return story;
-			}),
-			story: action.story,
-		};
-	}
-
 	if(action.type === EDIT_STORY){
 		return {
 			...state,
 			editing: action.editing
-		};
-	}
-
-	if(action.type === SEARCH_STORY){
-		return {
-			...state,
-			searchText: action.searchText
 		};
 	}
 

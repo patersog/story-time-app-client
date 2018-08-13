@@ -1,4 +1,4 @@
-import reducer from '../stories';
+import reducer from '../reducers/stories';
 
 import {
 	fetchStoryRequest,
@@ -7,11 +7,10 @@ import {
 	fetchStoryError,
 	setStory,
 	editStory,
-	updateStory,
-} from '../../actions/stories';
+} from '../actions/stories';
 
 describe('Stories Reducer', () => {
-	describe('setStory()', () => {	
+	describe('setStory()', () => {
 		it('Should set the (story) property', () => {
 			let state = {
 				story:{}
@@ -25,7 +24,7 @@ describe('Stories Reducer', () => {
 		});
 	});
 
-	describe('editStory()', () => {	
+	describe('editStory()', () => {
 		it('Should set the (editing) property', () => {
 			let state = {
 				editing: false
@@ -39,39 +38,7 @@ describe('Stories Reducer', () => {
 		});
 	});
 
-	describe('updateStory()', () => {	
-		it('Should update the (story) and (stories) [if \'id\' matches]', () => {
-			let state = {
-				stories: [
-					{
-						id: 0,
-						text: 'I am story 0'
-					},
-					{
-						id: 1,
-						text: 'I am story 1'
-					},
-					{
-						id: 2,
-						text: 'I am story 2'
-					}
-				],
-				story: {}
-			};
-
-			const story = {
-				id: 1,
-				text: ' I am UPDATED story 1'
-			};
-
-			const newState = reducer( state, updateStory(story));
-
-			expect(newState.stories[1]).toEqual(story);
-			expect(newState.story).toEqual(story);
-		});
-	});
-
-	describe('fetchStoryRequest()', () => {	
+	describe('fetchStoryRequest()', () => {
 		it('Should set the (loading) property', () => {
 			let state = {
 				loading: false

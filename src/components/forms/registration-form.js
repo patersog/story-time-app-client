@@ -77,8 +77,6 @@ export class RegistrationForm extends React.Component {
 			);
 		}
 
-		console.log(this.state.error ? this.state.error : 'nothing');
-
 		return (
 			<Form
 				onSubmit={this.submit}
@@ -88,18 +86,21 @@ export class RegistrationForm extends React.Component {
 					label="first name"
 					name="firstName"
 					type="text"
+					id="firstname"
 					onChange={dataObj => this.changeHandler(dataObj)}
 				/>
 				<Field
 					label="last name"
 					name="lastName"
 					type="text"
+					id="lastname"
 					onChange={dataObj => this.changeHandler(dataObj)}
 				/>
 				<Field
 					label="username"
 					name="username"
 					type="text"
+					id="username"
 					minLength={1}
 					maxLength={72}
 					pattern="^([a-zA-Z0-9].{8,72})$"
@@ -112,6 +113,7 @@ export class RegistrationForm extends React.Component {
 					label="password"
 					name="password"
 					type="password"
+					id="password"
 					minLength={8}
 					maxLength={72}
 					pattern="^([a-zA-Z0-9]{8,72})$"
@@ -124,6 +126,7 @@ export class RegistrationForm extends React.Component {
 					label="confirm password"
 					type="password"
 					name="passwordConfirm"
+					id="password-confirm"
 					onChange={dataObj => this.changeHandler(dataObj)}
 					autoComplete="off"
 					title={'must match password'}

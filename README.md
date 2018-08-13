@@ -53,15 +53,15 @@ Entry point for the application is server.js, and configuration in config.js
 
 ### DashBoard
 
-![dashboard view](https://www.flickr.com/photos/143447958@N07/42207070020/in/dateposted-public/)
+![dashboard view](https://flic.kr/p/27iGgrN)
 
 ### Login
 
-![register view](https://www.flickr.com/photos/143447958@N07/30147810588/in/dateposted-public/)
+![register view](https://flic.kr/p/MW4pKJ)
 
 ### Story
 
-![story view](https://www.flickr.com/photos/143447958@N07/30147810588/in/dateposted-public/)
+![story view](https://flic.kr/p/27iGgnQ)
 
 ## Task List
 

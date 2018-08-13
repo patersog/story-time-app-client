@@ -32,7 +32,7 @@ On the [Server](https://github.com/patersog/story-time-app-server)
 
 [jsonwebtokens](https://github.com/auth0/node-jsonwebtoken)
 
-Corresponding  can package.json files provide more detail
+Corresponding package.json files provide more detail
 
 ## Code
 
@@ -53,15 +53,15 @@ Entry point for the application is server.js, and configuration in config.js
 
 ### DashBoard
 
-[dashboard view](https://www.flickr.com/photos/143447958@N07/42207070020/in/dateposted-public/)
+![dashboard view](https://www.flickr.com/photos/143447958@N07/42207070020/in/dateposted-public/)
 
 ### Login
 
-[register view](https://www.flickr.com/photos/143447958@N07/30147810588/in/dateposted-public/)
+![register view](https://www.flickr.com/photos/143447958@N07/30147810588/in/dateposted-public/)
 
 ### Story
 
-[story view](https://www.flickr.com/photos/143447958@N07/30147810588/in/dateposted-public/)
+![story view](https://www.flickr.com/photos/143447958@N07/30147810588/in/dateposted-public/)
 
 ## Task List
 

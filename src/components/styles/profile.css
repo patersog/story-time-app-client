@@ -6,12 +6,12 @@
 
 .p-text {
 	border-radius: 3px;
-	background-color: #dbe3ce;
+	background-color: rgb(219, 227, 206);
 	padding: 0 0.5em;
 }
 
 .p-name{
 	margin: 0.483em;
 	text-transform: none;
-	color: #343D93;
+	color: rgb(51, 61, 147);
 }

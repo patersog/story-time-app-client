@@ -1,5 +1,5 @@
  .story-card {
-	background-color: ivory;
+	background-color: rgb(255, 255, 240);
 	border-radius: 3px;
 	display: flex;
 	flex-direction: row;
@@ -35,7 +35,7 @@
 
 .card-description {
 	display: flex;
-	color: #616C60;
+	color: rgb(97, 108, 96);
 	white-space: nowrap;
 	flex-direction: row;
 	justify-content: space-between;
@@ -51,7 +51,7 @@
 }
 
 .author {
-	color:#343D93;
+	color:rgb(52, 61, 147);
 	padding-right: 1em;
 }
 

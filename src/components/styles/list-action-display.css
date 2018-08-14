@@ -6,7 +6,7 @@
 
 .action-display-header {
 	margin: 0;
-	background-color:  #dbe3ce;
+	background-color: rgb(219, 227, 206);
 	text-align: center;
 	width: 100%;
 	font-size: 1em;
@@ -21,41 +21,6 @@
 	width: 95%;
 	height: 87.5%;
 	margin: 0 auto;
-	background-color: #a9ada4; 
+	background-color: rgb(169, 173, 164); 
 	border-radius: 3px;
 }
-
-/* @media screen and (min-width: 360px) {
-	.action-display-main {
-		height: 60vh;
-	}
-}
-
-@media screen and (min-width: 360px) and (min-height: 640px) {
-	.action-display-main {
-		height: 63.65vh;
-	}
-}
-
-@media screen and (min-width: 360px) and (max-height: 640px) {
-	.action-display-main {
-		height: 61.65vh;
-	}
-}
-
-@media screen and (min-width: 360px) and (min-height: 730px) {
-	.action-display-main {
-		height: 66.65vh;
-	}
-}
-
-@media screen and (min-width: 360px) and (min-height: 800px) {
-	.action-display-main {
-		height: 70vh;
-	}
-} */
-
-
-
-/* 1.233em;*/
-/*73vh*/

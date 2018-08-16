@@ -19,8 +19,6 @@ body {
 
 #root {
 	display: flex;
-	/* text-align: center; */
-	/* max-width: 80em; */
 	width: 50em;
 	font-family: 'Merriweather', serif;
 	line-height: 1.5;
